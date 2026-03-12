@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.env
+.env.*
+~/.defi-radar/
+coverage/
+.DS_Store
