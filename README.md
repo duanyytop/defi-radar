@@ -1,23 +1,25 @@
 # DeFi Radar
 
-Read-only, multi-chain DeFi asset monitoring MCP server for Claude Code / OpenClaw.
+Multi-chain DeFi market intelligence MCP server for Claude Code / OpenClaw.
+
+Provides on-chain fund flow analysis, whale movement detection, and bilingual (EN/ZH) daily reports to help investors make informed decisions.
 
 **Core principles**: Read-only (no private keys, no signing, no transactions), multi-chain, zero-trust (API keys stay local).
 
-## Features (Phase 1)
+## Features
 
-- **Wallet Balances** — ETH + ERC-20 token balances across Ethereum, Arbitrum, Base
-- **Aave V3 Health** — Monitor health factor, collateral, debt, liquidation risk
-- **Uniswap V3 LP** — Track LP positions, in-range / out-of-range status
-- **Portfolio Summary** — Combined overview of all positions
-- **Alerts** — Health factor warnings when positions approach liquidation
+- **Exchange Fund Flows** — Track CEX/DEX inflows and outflows to detect sell pressure or accumulation
+- **Stablecoin Flow Analysis** — Monitor USDC/USDT/DAI movements as market sentiment indicators
+- **Whale Movement Detection** — Detect large transfers above configurable USD thresholds
+- **Daily Market Report** — Bilingual (English/Chinese) report with signals and actionable suggestions
+- **Scheduled Reports** — GitHub Actions workflow posts bilingual reports to Issues daily at 8:00 AM Beijing time
 
 ## Quick Start
 
 ### 1. Install
 
 ```bash
-npm install -g defi-radar
+pnpm install -g defi-radar
 # or
 clawhub install defi-radar
 ```
@@ -28,26 +30,24 @@ clawhub install defi-radar
 mkdir -p ~/.defi-radar
 cat > ~/.defi-radar/config.json << 'EOF'
 {
-  "wallets": [
-    {
-      "label": "My Wallet",
-      "address": "0xYOUR_WALLET_ADDRESS",
-      "chains": ["ethereum", "arbitrum", "base"]
-    }
-  ],
   "chains": {
     "ethereum": { "rpcUrl": "https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY" },
     "arbitrum": { "rpcUrl": "https://arb-mainnet.g.alchemy.com/v2/YOUR_KEY" },
     "base": { "rpcUrl": "https://base-mainnet.g.alchemy.com/v2/YOUR_KEY" }
   },
-  "alerts": {
-    "aaveHealthFactorThreshold": 1.5
+  "coingecko": {
+    "apiKey": "YOUR_COINGECKO_KEY"
+  },
+  "monitoring": {
+    "tokens": ["USDC", "USDT", "WETH", "WBTC", "DAI"],
+    "chains": ["ethereum", "arbitrum", "base"],
+    "whaleThresholdUsd": 100000
   }
 }
 EOF
 ```
 
-Get a free Alchemy API key at [alchemy.com](https://www.alchemy.com/).
+Get a free Alchemy API key at [alchemy.com](https://www.alchemy.com/). CoinGecko API key is optional but recommended — get one at [coingecko.com/en/api](https://www.coingecko.com/en/api).
 
 ### 3. Add to Claude Code
 
@@ -70,7 +70,7 @@ Or for local development:
   "mcpServers": {
     "defi-radar": {
       "command": "node",
-      "args": ["/path/to/defi-radar/dist/index.js"]
+      "args": ["/path/to/defi-radar/dist/cli.js"]
     }
   }
 }
@@ -80,47 +80,99 @@ Or for local development:
 
 Talk to Claude naturally:
 
-- "Show my wallet balances"
-- "Is my Aave position safe?"
-- "Are my Uniswap LP positions in range?"
-- "Give me a portfolio overview"
-- "Check for any DeFi alerts"
+- "What are the exchange fund flows on Ethereum?"
+- "Show me stablecoin flows — is there buying demand?"
+- "Any whale movements in the last few blocks?"
+- "Generate a daily market report in Chinese"
+- "What's the overall market sentiment from on-chain data?"
 
 ## MCP Tools
 
 | Tool | Description |
 |------|-------------|
-| `get_wallet_balances` | ETH + ERC-20 balances with USD prices |
-| `get_aave_health` | Aave V3 health factor and position details |
-| `get_uniswap_positions` | Uniswap V3 LP positions and range status |
-| `get_portfolio_summary` | Combined portfolio overview |
-| `check_alerts` | Risk alerts and warnings |
+| `get_exchange_flows` | CEX/DEX token inflows and outflows with USD values |
+| `get_stablecoin_flows` | Stablecoin net flows as market demand indicator |
+| `get_whale_movements` | Large transfers above USD threshold |
+| `generate_daily_report` | Bilingual market intelligence report with signals |
+
+## CLI Usage
+
+```bash
+# Generate English report
+defi-radar report
+
+# Generate Chinese report
+defi-radar report --locale zh
+
+# Generate both EN and ZH reports
+defi-radar report --both
+
+# Print to stdout instead of file
+defi-radar report --stdout
+
+# Reports are saved to ~/.defi-radar/reports/
+```
+
+### Automated Daily Reports (GitHub Actions)
+
+A GitHub Actions workflow generates bilingual reports at **8:00 AM Beijing time** daily and posts them as GitHub Issues.
+
+**Setup:**
+
+1. (Optional) Add secrets to your repo (`Settings → Secrets and variables → Actions`) for better reliability:
+
+   | Secret | Required | Description |
+   |--------|----------|-------------|
+   | `ETH_RPC_URL` | No | Ethereum RPC endpoint (e.g. Alchemy). Falls back to public RPC |
+   | `ARB_RPC_URL` | No | Arbitrum RPC endpoint. Falls back to public RPC |
+   | `BASE_RPC_URL` | No | Base RPC endpoint. Falls back to public RPC |
+   | `COINGECKO_API_KEY` | No | CoinGecko API key for USD pricing |
+
+   > Without custom RPC URLs, public endpoints are used. They work but may rate-limit under heavy load. Alchemy/Infura free tiers are recommended for reliability.
+
+2. Create a `daily-report` label in your repo (`Issues → Labels → New label`).
+
+3. The workflow runs automatically on schedule. You can also trigger it manually from `Actions → Daily DeFi Report → Run workflow`.
 
 ## Configuration
 
-Config file: `~/.defi-radar/config.json`
+### Config file (`~/.defi-radar/config.json`)
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `wallets` | Yes | Array of wallet addresses to monitor |
-| `chains` | No | Custom RPC URLs (falls back to public RPCs) |
-| `coingecko.apiKey` | No | CoinGecko API key (free tier works without) |
-| `alerts.aaveHealthFactorThreshold` | No | Health factor alert threshold (default: 1.5) |
-| `tokens` | No | Custom token lists per chain |
+| `chains` | No | Custom RPC URLs per chain (falls back to public RPCs) |
+| `coingecko.apiKey` | No | CoinGecko API key for USD pricing (free tier has rate limits) |
+| `monitoring.tokens` | No | Tokens to monitor (default: USDC, USDT, WETH, WBTC, DAI) |
+| `monitoring.chains` | No | Chains to monitor (default: ethereum, arbitrum, base) |
+| `monitoring.whaleThresholdUsd` | No | Min USD value for whale alerts (default: 100,000) |
+
+### Environment variables (for CI)
+
+| Variable | Description |
+|----------|-------------|
+| `ETH_RPC_URL` | Ethereum RPC endpoint |
+| `ARB_RPC_URL` | Arbitrum RPC endpoint |
+| `BASE_RPC_URL` | Base RPC endpoint |
+| `COINGECKO_API_KEY` | CoinGecko API key |
+| `DEFI_RADAR_CONFIG` | Custom config file path (overrides default) |
+
+When environment variables are set, they take precedence over the config file.
 
 ## Development
 
 ```bash
 git clone https://github.com/duanyytop/defi-radar.git
 cd defi-radar
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 ```bash
-npm run build      # Compile TypeScript
-npm run typecheck   # Type check without emitting
-npm test           # Run tests
+pnpm build        # Compile TypeScript
+pnpm typecheck    # Type check without emitting
+pnpm test         # Run tests
+pnpm report       # Generate report (dev mode)
+pnpm report:both  # Generate EN + ZH reports
 ```
 
 ## Security
