@@ -1,0 +1,62 @@
+name: Daily DeFi Report
+
+on:
+  schedule:
+    # 8:00 AM Beijing time (UTC+8) = 0:00 UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  generate-report:
+    runs-on: ubuntu-latest
+    env:
+      # All optional — falls back to public RPCs if not set
+      ETH_RPC_URL: ${{ secrets.ETH_RPC_URL }}
+      ARB_RPC_URL: ${{ secrets.ARB_RPC_URL }}
+      BASE_RPC_URL: ${{ secrets.BASE_RPC_URL }}
+      COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        run: pnpm build
+
+      - name: Generate English report
+        run: node dist/cli.js report --locale en --stdout > report-en.md 2>&1 || true
+
+      - name: Generate Chinese report
+        run: node dist/cli.js report --locale zh --stdout > report-zh.md 2>&1 || true
+
+      - name: Create GitHub issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+
+          # Combine both reports
+          {
+            cat report-en.md
+            echo ""
+            echo "---"
+            echo ""
+            cat report-zh.md
+          } > report-combined.md
+
+          gh issue create \
+            --title "DeFi Daily Report — ${DATE}" \
+            --body-file report-combined.md \
+            --label "daily-report"

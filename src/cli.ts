@@ -12,21 +12,27 @@ const REPORTS_DIR = join(homedir(), '.defi-radar', 'reports');
 function printUsage(): void {
   console.log(`Usage: defi-radar report [options]
 
-Generate a daily DeFi report in Markdown format.
+Generate a daily DeFi market intelligence report in Markdown format.
 
 Options:
   --locale, -l <en|zh>    Report language (default: en)
-  --address, -a <addr>    Wallet address (default: first configured)
+  --chain, -c <chain>     Chain to focus on (default: all configured)
   --output, -o <path>     Output directory (default: ~/.defi-radar/reports/)
   --stdout                Print to stdout instead of writing to file
   --both                  Generate both English and Chinese reports
   --help, -h              Show this help message
+
+Environment variables (for CI):
+  ETH_RPC_URL             Ethereum RPC endpoint
+  ARB_RPC_URL             Arbitrum RPC endpoint
+  BASE_RPC_URL            Base RPC endpoint
+  COINGECKO_API_KEY       CoinGecko API key
 `);
 }
 
 function parseArgs(args: string[]): {
   locale: Locale;
-  address?: string;
+  chain?: string;
   outputDir: string;
   stdout: boolean;
   both: boolean;
@@ -34,7 +40,7 @@ function parseArgs(args: string[]): {
 } {
   const result = {
     locale: 'en' as Locale,
-    address: undefined as string | undefined,
+    chain: undefined as string | undefined,
     outputDir: REPORTS_DIR,
     stdout: false,
     both: false,
@@ -48,9 +54,9 @@ function parseArgs(args: string[]): {
       case '-l':
         result.locale = (args[++i] as Locale) ?? 'en';
         break;
-      case '--address':
-      case '-a':
-        result.address = args[++i];
+      case '--chain':
+      case '-c':
+        result.chain = args[++i];
         break;
       case '--output':
       case '-o':
@@ -74,16 +80,16 @@ function parseArgs(args: string[]): {
 
 async function writeReport(
   locale: Locale,
-  address: string | undefined,
+  chain: string | undefined,
   outputDir: string,
   stdout: boolean,
-): Promise<void> {
+): Promise<string> {
   const config = loadConfig();
-  const report = await generateDailyReport(config, locale, address);
+  const report = await generateDailyReport(config, locale, chain);
 
   if (stdout) {
     console.log(report);
-    return;
+    return report;
   }
 
   mkdirSync(outputDir, { recursive: true });
@@ -91,7 +97,8 @@ async function writeReport(
   const filename = `report-${date}-${locale}.md`;
   const filepath = join(outputDir, filename);
   writeFileSync(filepath, report, 'utf-8');
-  console.log(`Report saved: ${filepath}`);
+  console.error(`Report saved: ${filepath}`);
+  return report;
 }
 
 async function main(): Promise<void> {
@@ -119,10 +126,10 @@ async function main(): Promise<void> {
   }
 
   if (opts.both) {
-    await writeReport('en', opts.address, opts.outputDir, opts.stdout);
-    await writeReport('zh', opts.address, opts.outputDir, opts.stdout);
+    await writeReport('en', opts.chain, opts.outputDir, opts.stdout);
+    await writeReport('zh', opts.chain, opts.outputDir, opts.stdout);
   } else {
-    await writeReport(opts.locale, opts.address, opts.outputDir, opts.stdout);
+    await writeReport(opts.locale, opts.chain, opts.outputDir, opts.stdout);
   }
 }
 

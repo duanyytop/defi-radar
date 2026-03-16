@@ -1,5 +1,6 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi, afterEach } from 'vitest';
 import { ConfigSchema } from '../types.js';
+import { loadConfig } from '../config.js';
 
 describe('ConfigSchema', () => {
   it('validates a minimal empty config', () => {
@@ -68,5 +69,45 @@ describe('ConfigSchema', () => {
     };
     const result = ConfigSchema.safeParse(config);
     expect(result.success).toBe(true);
+  });
+});
+
+describe('loadConfig from env', () => {
+  const originalEnv = process.env;
+
+  afterEach(() => {
+    process.env = originalEnv;
+  });
+
+  it('builds config from ETH_RPC_URL env var', () => {
+    process.env = {
+      ...originalEnv,
+      ETH_RPC_URL: 'https://eth-mainnet.g.alchemy.com/v2/test',
+    };
+    const config = loadConfig();
+    expect(config.chains?.ethereum?.rpcUrl).toBe('https://eth-mainnet.g.alchemy.com/v2/test');
+  });
+
+  it('includes coingecko key from env', () => {
+    process.env = {
+      ...originalEnv,
+      ETH_RPC_URL: 'https://eth-mainnet.g.alchemy.com/v2/test',
+      COINGECKO_API_KEY: 'cg-test-key',
+    };
+    const config = loadConfig();
+    expect(config.coingecko?.apiKey).toBe('cg-test-key');
+  });
+
+  it('includes multiple chain RPCs from env', () => {
+    process.env = {
+      ...originalEnv,
+      ETH_RPC_URL: 'https://eth.example.com',
+      ARB_RPC_URL: 'https://arb.example.com',
+      BASE_RPC_URL: 'https://base.example.com',
+    };
+    const config = loadConfig();
+    expect(config.chains?.ethereum?.rpcUrl).toBe('https://eth.example.com');
+    expect(config.chains?.arbitrum?.rpcUrl).toBe('https://arb.example.com');
+    expect(config.chains?.base?.rpcUrl).toBe('https://base.example.com');
   });
 });

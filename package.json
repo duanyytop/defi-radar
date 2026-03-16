@@ -1,15 +1,17 @@
 {
   "name": "defi-radar",
   "version": "0.1.0",
-  "description": "Read-only, multi-chain DeFi asset monitoring MCP server",
+  "description": "Multi-chain DeFi market intelligence MCP server with exchange flows, whale detection, and bilingual reports",
   "type": "module",
   "bin": {
-    "defi-radar": "./dist/index.js"
+    "defi-radar": "./dist/cli.js"
   },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "tsx src/index.ts",
+    "start": "node dist/cli.js",
+    "dev": "tsx src/cli.ts",
+    "report": "tsx src/cli.ts report",
+    "report:both": "tsx src/cli.ts report --both",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
