@@ -36,40 +36,24 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Generate English report
-        run: node dist/cli.js report --locale en --stdout > report-en.md 2> logs-en.txt || true
-
-      - name: Generate Chinese report
-        run: node dist/cli.js report --locale zh --stdout > report-zh.md 2> logs-zh.txt || true
+      - name: Generate report
+        run: node dist/cli.js report --locale en --stdout > report.md 2> logs.txt || true
 
       - name: Show debug logs
         if: always()
         run: |
-          echo "=== English report logs ==="
-          cat logs-en.txt || true
+          echo "=== Report logs ==="
+          cat logs.txt || true
           echo ""
-          echo "=== Chinese report logs ==="
-          cat logs-zh.txt || true
-          echo ""
-          echo "=== English report preview (first 20 lines) ==="
-          head -20 report-en.md || true
+          echo "=== Report preview (first 30 lines) ==="
+          head -30 report.md || true
 
       - name: Create GitHub issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
-
-          # Combine both reports
-          {
-            cat report-en.md
-            echo ""
-            echo "---"
-            echo ""
-            cat report-zh.md
-          } > report-combined.md
-
           gh issue create \
             --title "DeFi Daily Report — ${DATE}" \
-            --body-file report-combined.md \
+            --body-file report.md \
             --label "daily-report"

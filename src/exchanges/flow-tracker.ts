@@ -8,10 +8,14 @@ const TRANSFER_EVENT = parseAbiItem(
   'event Transfer(address indexed from, address indexed to, uint256 value)',
 );
 
-const MAX_BLOCKS = 5000;
+const MAX_BLOCKS = 2000;
 const DEFAULT_BLOCKS = 100;
 // Alchemy free tier allows max 10 blocks per getLogs request
 const CHUNK_SIZE = 10;
+// Delay between chunk requests to avoid compute unit rate limits (ms)
+const CHUNK_DELAY_MS = 200;
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Minimal ABI for decimals and symbol
 const ERC20_METADATA_ABI = [
@@ -79,7 +83,10 @@ async function getLogsChunked(
 ) {
   const allLogs: Awaited<ReturnType<typeof client.getLogs<typeof TRANSFER_EVENT>>> = [];
 
+  let isFirst = true;
   for (let start = fromBlock; start <= toBlock; start += BigInt(CHUNK_SIZE)) {
+    if (!isFirst) await sleep(CHUNK_DELAY_MS);
+    isFirst = false;
     const end = start + BigInt(CHUNK_SIZE) - 1n > toBlock ? toBlock : start + BigInt(CHUNK_SIZE) - 1n;
     const logs = await client.getLogs({
       event: TRANSFER_EVENT,

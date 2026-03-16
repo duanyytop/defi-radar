@@ -9,6 +9,8 @@ const TRANSFER_EVENT = parseAbiItem(
   'event Transfer(address indexed from, address indexed to, uint256 value)',
 );
 const LOG_CHUNK_SIZE = 10n;
+const CHUNK_DELAY_MS = 200;
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function getLogsChunked(
   client: PublicClient,
@@ -17,7 +19,10 @@ async function getLogsChunked(
   toBlock: bigint,
 ) {
   const allLogs: Awaited<ReturnType<typeof client.getLogs<typeof TRANSFER_EVENT>>> = [];
+  let isFirst = true;
   for (let start = fromBlock; start <= toBlock; start += LOG_CHUNK_SIZE) {
+    if (!isFirst) await sleep(CHUNK_DELAY_MS);
+    isFirst = false;
     const end = start + LOG_CHUNK_SIZE - 1n > toBlock ? toBlock : start + LOG_CHUNK_SIZE - 1n;
     const logs = await client.getLogs({
       event: TRANSFER_EVENT,

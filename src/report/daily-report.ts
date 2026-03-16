@@ -14,6 +14,8 @@ const ERC20_DECIMALS_ABI = [
   { name: 'decimals', type: 'function', stateMutability: 'view', inputs: [], outputs: [{ name: '', type: 'uint8' }] },
 ] as const;
 const LOG_CHUNK_SIZE = 10n;
+const CHUNK_DELAY_MS = 200;
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function getLogsChunked(
   client: PublicClient,
@@ -22,7 +24,10 @@ async function getLogsChunked(
   toBlock: bigint,
 ) {
   const allLogs: Awaited<ReturnType<typeof client.getLogs<typeof TRANSFER_EVENT>>> = [];
+  let isFirst = true;
   for (let start = fromBlock; start <= toBlock; start += LOG_CHUNK_SIZE) {
+    if (!isFirst) await sleep(CHUNK_DELAY_MS);
+    isFirst = false;
     const end = start + LOG_CHUNK_SIZE - 1n > toBlock ? toBlock : start + LOG_CHUNK_SIZE - 1n;
     const logs = await client.getLogs({
       event: TRANSFER_EVENT,
@@ -66,7 +71,7 @@ async function collectExchangeFlows(
   for (const chainName of chains) {
     try {
       const client = getClient(chainName, config);
-      const result = await getExchangeFlows(client, chainName, { blocks: 500 });
+      const result = await getExchangeFlows(client, chainName, { blocks: 100 });
       console.error(`[${chainName}] exchange flows: ${result.flows.length} flows found`);
 
       // Enrich with prices
@@ -111,7 +116,7 @@ async function collectStablecoinFlows(
         const client = getClient(chainName, config);
         const flowResult = await getExchangeFlows(client, chainName, {
           token: address as `0x${string}`,
-          blocks: 500,
+          blocks: 100,
         });
 
         let totalInflow = 0;

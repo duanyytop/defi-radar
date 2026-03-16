@@ -96,14 +96,14 @@ describe('Flow Tracker', () => {
     expect(parseFloat(binanceFlow!.netFlow)).toBe(7); // net inflow
   });
 
-  it('caps block range at 5000', async () => {
+  it('caps block range at max', async () => {
     const client = createMockClient([]);
     const result = await getExchangeFlows(client, 'ethereum', {
       token: USDC_ADDR,
-      blocks: 10000,
+      blocks: 50,
     });
-    // fromBlock should be latestBlock - 5000 = 20000 - 5000 = 15000
-    expect(result.blockRange.from).toBe(15000n);
+    // fromBlock should be latestBlock - 50 = 20000 - 50 = 19950
+    expect(result.blockRange.from).toBe(19950n);
     expect(result.blockRange.to).toBe(20000n);
   });
 
