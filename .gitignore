@@ -5,4 +5,5 @@ dist/
 .env.*
 ~/.defi-radar/
 coverage/
+docs/_site/
 .DS_Store

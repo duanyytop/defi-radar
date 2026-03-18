@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title | default: site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a class="site-title" href="{{ '/' | relative_url }}">AI Market Radar</a>
+      <ul class="nav-links">
+        <li><a href="{{ '/' | relative_url }}"{% if page.lang == 'en' and page.url == '/' %} class="active"{% endif %}>Latest</a></li>
+        <li><a href="{{ '/archive' | relative_url }}"{% if page.url contains 'archive' and page.lang == 'en' %} class="active"{% endif %}>Archive</a></li>
+        <li>|</li>
+        <li><a href="{{ '/' | relative_url }}"{% if page.lang == 'en' %} class="active"{% endif %}>EN</a></li>
+        <li><a href="{{ '/zh/' | relative_url }}"{% if page.lang == 'zh' %} class="active"{% endif %}>ZH</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      AI Market Radar &mdash; Data from DeFiLlama, CoinGecko, Sina Finance, Eastmoney
+    </div>
+  </footer>
+</body>
+</html>

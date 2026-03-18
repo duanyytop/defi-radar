@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+{{ content }}
+
+<div class="report-nav">
+  <span>
+    {% if page.lang == 'en' %}
+      <a href="{{ '/zh/reports/' | append: page.date | append: '/' | relative_url }}">ZH 中文版</a>
+    {% else %}
+      <a href="{{ '/reports/en/' | append: page.date | append: '/' | relative_url }}">EN English</a>
+    {% endif %}
+  </span>
+  <span>
+    {% if page.lang == 'en' %}
+      <a href="{{ '/archive' | relative_url }}">All Reports &rarr;</a>
+    {% else %}
+      <a href="{{ '/zh/archive' | relative_url }}">所有报告 &rarr;</a>
+    {% endif %}
+  </span>
+</div>

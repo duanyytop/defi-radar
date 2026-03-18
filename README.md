@@ -2,14 +2,19 @@
 
 AI-powered daily cross-market intelligence report covering **US stocks, Hong Kong stocks, China A-shares, and Crypto/DeFi**.
 
-Collects data from free public APIs, then uses LLM to produce bilingual (EN/ZH) analysis with cross-market correlation insights. Reports are posted as GitHub Issues at **8:00 AM Beijing time** daily.
+Collects data from free public APIs, then uses LLM to produce bilingual (EN/ZH) analysis with cross-market correlation insights.
+
+**[View Latest Report →](https://duanyytop.github.io/ai-market-radar/)**
+
+Reports are published daily at **8:00 AM Beijing time** to both [GitHub Issues](https://github.com/duanyytop/ai-market-radar/issues?q=label%3Adaily-report) and [GitHub Pages](https://duanyytop.github.io/ai-market-radar/).
 
 ## How It Works
 
 ```
-Sina Finance ──→ US / HK / A-share indices  ─┐
-Eastmoney ─────→ Northbound flow, sectors    ├─→ LLM Analysis ─→ EN + ZH Reports ─→ GitHub Issues
-DeFiLlama ─────→ Protocol TVL, DEX volume    │
+Sina Finance ──→ US / HK / A-share indices  ─┐                    ┌─→ GitHub Issues
+Eastmoney ─────→ Northbound flow, sectors    ├─→ LLM Analysis ───┤
+DeFiLlama ─────→ Protocol TVL, DEX volume    │   (EN + ZH)       └─→ GitHub Pages
+
 CoinGecko ─────→ BTC/ETH, market cap         ┘
 ```
 

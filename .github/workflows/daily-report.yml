@@ -1,4 +1,4 @@
-name: Daily DeFi Report
+name: AI Market Radar
 
 on:
   schedule:
@@ -6,8 +6,11 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+concurrency: daily-report
+
 permissions:
   issues: write
+  contents: write
 
 jobs:
   generate-report:
@@ -72,3 +75,65 @@ jobs:
             --title "AI 市场雷达 — ${DATE}" \
             --body-file report-zh.md \
             --label "daily-report"
+
+      - name: Publish to GitHub Pages
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          mkdir -p docs/reports/en docs/reports/zh
+
+          # EN report with Jekyll frontmatter
+          {
+            echo "---"
+            echo "layout: report"
+            echo "title: \"AI Market Radar — ${DATE}\""
+            echo "date: \"${DATE}\""
+            echo "lang: en"
+            echo "---"
+            echo ""
+            cat report-en.md
+          } > "docs/reports/en/${DATE}.md"
+
+          # ZH report with Jekyll frontmatter
+          {
+            echo "---"
+            echo "layout: report"
+            echo "title: \"AI 市场雷达 — ${DATE}\""
+            echo "date: \"${DATE}\""
+            echo "lang: zh"
+            echo "---"
+            echo ""
+            cat report-zh.md
+          } > "docs/reports/zh/${DATE}.md"
+
+          # Update EN index to show latest report
+          cat > docs/index.md << INDEXEOF
+          ---
+          layout: default
+          title: AI Market Radar
+          lang: en
+          ---
+
+          [View Archive →](archive)
+
+          $(cat report-en.md)
+          INDEXEOF
+
+          # Update ZH index to show latest report
+          cat > docs/zh/index.md << ZHEOF
+          ---
+          layout: default
+          title: AI 市场雷达
+          lang: zh
+          ---
+
+          [查看归档 →](archive)
+
+          $(cat report-zh.md)
+          ZHEOF
+
+          # Commit and push
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git commit -m "report: ${DATE}" || echo "No changes"
+          git push

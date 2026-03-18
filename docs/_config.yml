@@ -1,0 +1,18 @@
+title: AI Market Radar
+description: AI-powered daily cross-market intelligence report
+baseurl: "/ai-market-radar"
+url: "https://duanyytop.github.io"
+markdown: kramdown
+exclude:
+  - README.md
+defaults:
+  - scope:
+      path: "reports/en"
+    values:
+      layout: report
+      lang: en
+  - scope:
+      path: "reports/zh"
+    values:
+      layout: report
+      lang: zh
