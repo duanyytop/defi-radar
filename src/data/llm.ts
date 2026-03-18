@@ -30,10 +30,12 @@ Please write a comprehensive market intelligence report in **${lang}** based on 
 2. **DeFi Protocol Analysis** — Notable TVL changes and what's driving capital flows
 3. **Stablecoin Dynamics** — What supply changes tell us about market sentiment
 4. **DEX Trading Activity** — Volume analysis and what it signals
-5. **A-Share Market Recap** — Index performance, northbound flow significance, sector rotation, and market breadth analysis
-6. **Cross-Market Correlation** — How A-share and crypto markets are interacting (risk appetite, capital flows, macro sentiment)
-7. **Risk Assessment** — Key risks across both markets
-8. **Actionable Suggestions** — Specific, data-backed recommendations for different investor profiles (conservative / moderate / aggressive)
+5. **US Market Recap** — Key index movements and implications for global risk sentiment
+6. **Hong Kong Market Recap** — HSI/HSCEI/HSTECH performance and what it signals for China exposure
+7. **A-Share Market Recap** — Index performance, northbound flow significance, sector rotation, and market breadth analysis
+8. **Cross-Market Correlation** — How US, HK, A-share, and crypto markets are interacting (risk appetite, capital flows, macro sentiment, currency dynamics)
+9. **Risk Assessment** — Key risks across all markets
+10. **Actionable Suggestions** — Specific, data-backed recommendations for different investor profiles (conservative / moderate / aggressive)
 
 Format the report in Markdown with the title: "# Market Intelligence Report — ${date}"
 
@@ -93,6 +95,28 @@ function buildDataContext(data: ReportData): string {
     for (const d of data.dexVolumes) {
       lines.push(
         `- ${d.name}: $${(d.volume24h / 1e6).toFixed(1)}M (${d.volumeChange1d >= 0 ? '+' : ''}${d.volumeChange1d.toFixed(1)}% vs prev day)`,
+      );
+    }
+    lines.push('');
+  }
+
+  // US Market data
+  if (data.us && data.us.indices.length > 0) {
+    lines.push('### US Market (Previous Close)');
+    for (const idx of data.us.indices) {
+      lines.push(
+        `- ${idx.name}: ${idx.price.toFixed(2)} (${idx.changePct >= 0 ? '+' : ''}${idx.changePct.toFixed(2)}%)`,
+      );
+    }
+    lines.push('');
+  }
+
+  // HK Market data
+  if (data.hk && data.hk.indices.length > 0) {
+    lines.push('### Hong Kong Market (Previous Close)');
+    for (const idx of data.hk.indices) {
+      lines.push(
+        `- ${idx.name}: ${idx.price.toFixed(2)} (${idx.changePct >= 0 ? '+' : ''}${idx.changePct.toFixed(2)}%)`,
       );
     }
     lines.push('');

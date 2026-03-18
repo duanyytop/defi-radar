@@ -73,8 +73,22 @@ export interface AShareData {
   };
 }
 
+export interface StockIndex {
+  name: string;
+  price: number;
+  changePct: number;
+}
+
+export interface USMarketData {
+  indices: StockIndex[];
+}
+
+export interface HKMarketData {
+  indices: StockIndex[];
+}
+
 export interface MarketSignal {
-  type: 'price' | 'tvl' | 'stablecoin' | 'dex_volume' | 'ashare';
+  type: 'price' | 'tvl' | 'stablecoin' | 'dex_volume' | 'ashare' | 'us' | 'hk';
   severity: 'info' | 'notable' | 'significant';
   signal: 'bullish' | 'bearish' | 'neutral';
   message: string;
@@ -87,5 +101,7 @@ export interface ReportData {
   stablecoins: StablecoinSupply[];
   dexVolumes: DexVolume[];
   ashare: AShareData | null;
+  us: USMarketData | null;
+  hk: HKMarketData | null;
   signals: MarketSignal[];
 }

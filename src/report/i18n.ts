@@ -64,6 +64,18 @@ const translations = {
     zh: '暂无 TVL 数据。',
   },
 
+  // US Market
+  sectionUS: {
+    en: 'US Market (Previous Close)',
+    zh: '美股市场（上一交易日收盘）',
+  },
+
+  // HK Market
+  sectionHK: {
+    en: 'Hong Kong Market (Previous Close)',
+    zh: '港股市场（上一交易日收盘）',
+  },
+
   // A-Share
   sectionAShare: {
     en: 'A-Share Market (Previous Close)',
