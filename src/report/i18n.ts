@@ -2,8 +2,8 @@ export type Locale = 'en' | 'zh';
 
 const translations = {
   reportTitle: {
-    en: 'DeFi Market Intelligence Report',
-    zh: 'DeFi 市场情报日报',
+    en: 'AI Market Radar — Daily Intelligence Report',
+    zh: 'AI 市场雷达 — 每日情报',
   },
   generatedAt: {
     en: 'Generated at',

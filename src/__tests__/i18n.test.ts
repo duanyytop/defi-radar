@@ -3,13 +3,13 @@ import { t } from '../report/i18n.js';
 
 describe('i18n', () => {
   it('returns English translations', () => {
-    expect(t('reportTitle', 'en')).toBe('DeFi Market Intelligence Report');
+    expect(t('reportTitle', 'en')).toBe('AI Market Radar — Daily Intelligence Report');
     expect(t('sectionMarketOverview', 'en')).toBe('Market Overview');
     expect(t('disclaimer', 'en')).toContain('informational purposes');
   });
 
   it('returns Chinese translations', () => {
-    expect(t('reportTitle', 'zh')).toBe('DeFi 市场情报日报');
+    expect(t('reportTitle', 'zh')).toBe('AI 市场雷达 — 每日情报');
     expect(t('sectionMarketOverview', 'zh')).toBe('市场概览');
     expect(t('disclaimer', 'zh')).toContain('仅供参考');
   });

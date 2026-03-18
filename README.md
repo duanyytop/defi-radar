@@ -1,22 +1,47 @@
-# DeFi Radar
+# AI Market Radar
 
-AI-powered daily DeFi market intelligence report. Collects data from DeFiLlama + CoinGecko, then uses LLM to produce bilingual (EN/ZH) analysis for crypto investors.
+AI-powered daily cross-market intelligence report covering **US stocks, Hong Kong stocks, China A-shares, and Crypto/DeFi**.
 
-Reports are automatically generated via GitHub Actions and posted as GitHub Issues at **8:00 AM Beijing time** daily.
+Collects data from free public APIs, then uses LLM to produce bilingual (EN/ZH) analysis with cross-market correlation insights. Reports are posted as GitHub Issues at **8:00 AM Beijing time** daily.
 
 ## How It Works
 
 ```
-DeFiLlama API ─┐                    ┌─→ English Report ─┐
-                ├─→ Structured Data ─┤                   ├─→ GitHub Issue
-CoinGecko API ──┘                    └─→ 中文报告 ────────┘
+Sina Finance ──→ US / HK / A-share indices  ─┐
+Eastmoney ─────→ Northbound flow, sectors    ├─→ LLM Analysis ─→ EN + ZH Reports ─→ GitHub Issues
+DeFiLlama ─────→ Protocol TVL, DEX volume    │
+CoinGecko ─────→ BTC/ETH, market cap         ┘
 ```
 
-1. **Data collection** — Fetches protocol TVL, stablecoin supply, DEX volumes, and market prices
-2. **AI analysis** — LLM generates English and Chinese reports from the same data (fetched once)
-3. **Report delivery** — Both reports combined into one GitHub Issue
+**Cross-market analysis framework:**
+- **Risk Appetite Chain** — US sets tone → HK follows overnight → A-shares react → Crypto amplifies
+- **Capital Rotation** — Stablecoin supply vs stock flows, northbound vs southbound, DeFi TVL shifts
+- **Divergence Alerts** — Markets moving in opposite directions = highest-alpha signals
+- **Macro Linkages** — USD strength, Fed policy, China stimulus transmission
 
-> Without an LLM API key, falls back to rule-based reports.
+## What's in the Report
+
+| Section | Coverage |
+|---------|----------|
+| **Key Insight** | The single most important cross-market signal today |
+| **Global Risk Sentiment** | US → HK → A-share → Crypto transmission |
+| **Crypto & DeFi** | BTC/ETH, TVL trends, stablecoin supply, DEX volume |
+| **US Market** | Dow Jones, NASDAQ, S&P 500 |
+| **Hong Kong Market** | Hang Seng, HS China Enterprise, HS TECH |
+| **A-Share Market** | SSE/SZSE/ChiNext, northbound flow, sector rotation, breadth |
+| **Cross-Market Divergences** | Where markets disagree — and why |
+| **Capital Flow Map** | Where money is moving across all four markets |
+| **Risk Matrix** | Top risks ranked by probability and impact |
+| **Action Plan** | Recommendations by profile: conservative / moderate / aggressive |
+
+## Data Sources
+
+| Source | Data | Cost |
+|--------|------|------|
+| [Sina Finance](https://finance.sina.com.cn) | US, HK, A-share index quotes | Free, no key |
+| [Eastmoney](https://data.eastmoney.com) | Northbound flow, sector flows, market breadth | Free, no key |
+| [DeFiLlama](https://defillama.com) | Protocol TVL, stablecoin supply, DEX volumes | Free, no key |
+| [CoinGecko](https://www.coingecko.com) | BTC/ETH prices, market cap | Free, key optional |
 
 ## Setup
 
@@ -24,7 +49,7 @@ CoinGecko API ──┘                    └─→ 中文报告 ────�
 2. Create a `daily-report` label: `gh label create daily-report`
 3. Add secrets to your repo (`Settings → Secrets → Actions`):
 
-### Kimi Code Plan (recommended)
+### Kimi Code Plan (recommended — cheapest)
 
 | Secret | Value |
 |--------|-------|
@@ -37,16 +62,18 @@ CoinGecko API ──┘                    └─→ 中文报告 ────�
 |--------|-------|
 | `ANTHROPIC_API_KEY` | `sk-ant-...` |
 
-### OpenAI-compatible (Kimi 2.5, OpenRouter, etc.)
+### OpenAI-compatible
 
 | Secret | Value |
 |--------|-------|
 | `LLM_PROVIDER` | `openai` |
 | `LLM_API_KEY` | Your API key |
-| `LLM_MODEL` | `kimi-2.5` |
-| `LLM_BASE_URL` | `https://api.kimi.com/v1` |
+| `LLM_MODEL` | Model name |
+| `LLM_BASE_URL` | API endpoint |
 
 4. Trigger manually: `Actions → Daily DeFi Report → Run workflow`
+
+> Without an LLM API key, reports fall back to rule-based analysis with the same data.
 
 ## Development
 

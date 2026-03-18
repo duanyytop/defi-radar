@@ -1,7 +1,7 @@
 {
-  "name": "defi-radar",
-  "version": "0.2.0",
-  "description": "AI-powered daily DeFi market intelligence report",
+  "name": "ai-market-radar",
+  "version": "0.3.0",
+  "description": "AI-powered daily cross-market intelligence report (US, HK, A-share, Crypto/DeFi)",
   "type": "module",
   "scripts": {
     "build": "tsc",

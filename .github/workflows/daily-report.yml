@@ -59,7 +59,7 @@ jobs:
         run: |
           DATE=$(date -u +%Y-%m-%d)
           gh issue create \
-            --title "DeFi Daily Report — ${DATE}" \
+            --title "AI Market Radar — ${DATE}" \
             --body-file report-en.md \
             --label "daily-report"
 
@@ -69,6 +69,6 @@ jobs:
         run: |
           DATE=$(date -u +%Y-%m-%d)
           gh issue create \
-            --title "DeFi 每日报告 — ${DATE}" \
+            --title "AI 市场雷达 — ${DATE}" \
             --body-file report-zh.md \
             --label "daily-report"
