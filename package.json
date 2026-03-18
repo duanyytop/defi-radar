@@ -1,16 +1,12 @@
 {
   "name": "defi-radar",
   "version": "0.2.0",
-  "description": "Daily DeFi market intelligence report generator using free APIs",
+  "description": "AI-powered daily DeFi market intelligence report",
   "type": "module",
-  "bin": {
-    "defi-radar": "./dist/cli.js"
-  },
   "scripts": {
     "build": "tsc",
-    "start": "node dist/cli.js report",
-    "dev": "tsx src/cli.ts report",
-    "report": "tsx src/cli.ts report",
+    "start": "node dist/main.js",
+    "dev": "tsx src/main.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",

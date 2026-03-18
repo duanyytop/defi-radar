@@ -40,7 +40,7 @@ jobs:
         run: pnpm build
 
       - name: Generate bilingual report
-        run: node dist/cli.js report --both --stdout > report.md 2> logs.txt || true
+        run: node dist/main.js > report.md 2> logs.txt || true
 
       - name: Show debug logs
         if: always()
