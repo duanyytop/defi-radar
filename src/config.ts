@@ -11,33 +11,36 @@ export function getConfigPath(): string {
 }
 
 export function loadConfig(): DefiRadarConfig {
-  // Check env for CoinGecko key
+  // Build from env vars + config file
+  const envOverrides: Record<string, unknown> = {};
+
   if (process.env.COINGECKO_API_KEY) {
-    return ConfigSchema.parse({
-      coingecko: { apiKey: process.env.COINGECKO_API_KEY },
-    });
+    envOverrides.coingecko = { apiKey: process.env.COINGECKO_API_KEY };
+  }
+  if (process.env.ANTHROPIC_API_KEY) {
+    envOverrides.anthropic = { apiKey: process.env.ANTHROPIC_API_KEY };
   }
 
   const configPath = getConfigPath();
+  let fileConfig: Record<string, unknown> = {};
 
   if (existsSync(configPath)) {
     const raw = readFileSync(configPath, 'utf-8');
-    let parsed: unknown;
     try {
-      parsed = JSON.parse(raw);
+      fileConfig = JSON.parse(raw) as Record<string, unknown>;
     } catch {
       throw new Error(`Invalid JSON in ${configPath}`);
     }
-
-    const result = ConfigSchema.safeParse(parsed);
-    if (!result.success) {
-      const issues = result.error.issues.map((i) => `  - ${i.path.join('.')}: ${i.message}`).join('\n');
-      throw new Error(`Invalid config in ${configPath}:\n${issues}`);
-    }
-
-    return result.data;
   }
 
-  // No config needed — all APIs are free
-  return ConfigSchema.parse({});
+  // Env vars override file config
+  const merged = { ...fileConfig, ...envOverrides };
+
+  const result = ConfigSchema.safeParse(merged);
+  if (!result.success) {
+    const issues = result.error.issues.map((i) => `  - ${i.path.join('.')}: ${i.message}`).join('\n');
+    throw new Error(`Invalid config:\n${issues}`);
+  }
+
+  return result.data;
 }

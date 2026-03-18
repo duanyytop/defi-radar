@@ -6,6 +6,12 @@ export const ConfigSchema = z.object({
       apiKey: z.string().optional(),
     })
     .optional(),
+  anthropic: z
+    .object({
+      apiKey: z.string().optional(),
+      model: z.string().default('claude-sonnet-4-5-20250514'),
+    })
+    .optional(),
 });
 export type DefiRadarConfig = z.infer<typeof ConfigSchema>;
 

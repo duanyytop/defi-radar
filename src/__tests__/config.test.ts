@@ -17,6 +17,18 @@ describe('ConfigSchema', () => {
     const result = ConfigSchema.parse({});
     expect(result.coingecko).toBeUndefined();
   });
+
+  it('accepts anthropic config', () => {
+    const result = ConfigSchema.safeParse({
+      anthropic: { apiKey: 'sk-ant-test' },
+    });
+    expect(result.success).toBe(true);
+  });
+
+  it('applies default model for anthropic', () => {
+    const result = ConfigSchema.parse({ anthropic: {} });
+    expect(result.anthropic?.model).toBe('claude-sonnet-4-5-20250514');
+  });
 });
 
 describe('loadConfig from env', () => {
@@ -35,8 +47,14 @@ describe('loadConfig from env', () => {
   it('returns empty config when no env or file', () => {
     process.env = { ...originalEnv };
     delete process.env.COINGECKO_API_KEY;
-    // loadConfig falls back to empty config if no file exists
+    delete process.env.ANTHROPIC_API_KEY;
     const config = loadConfig();
     expect(config).toBeDefined();
+  });
+
+  it('picks up ANTHROPIC_API_KEY from env', () => {
+    process.env = { ...originalEnv, ANTHROPIC_API_KEY: 'sk-ant-test' };
+    const config = loadConfig();
+    expect(config.anthropic?.apiKey).toBe('sk-ant-test');
   });
 });

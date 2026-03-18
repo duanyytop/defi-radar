@@ -1,19 +1,33 @@
 # DeFi Radar
 
-Daily DeFi market intelligence report generator. Uses free public APIs (DeFiLlama + CoinGecko) to produce actionable reports for crypto investors.
+AI-powered daily DeFi market intelligence report. Collects data from DeFiLlama + CoinGecko, then uses Claude to produce deep, actionable analysis for crypto investors.
 
 Reports are automatically generated via GitHub Actions and posted as GitHub Issues at **8:00 AM Beijing time** daily.
 
+## How It Works
+
+```
+DeFiLlama API ─┐
+                ├─→ Structured Data ─→ Claude AI ─→ Market Intelligence Report
+CoinGecko API ──┘
+```
+
+1. **Data collection** — Fetches protocol TVL, stablecoin supply, DEX volumes, and market prices from free APIs
+2. **AI analysis** — Claude analyzes correlations, identifies signals, and generates actionable insights
+3. **Report delivery** — Posted as a GitHub Issue with full Markdown formatting
+
+> Without an Anthropic API key, falls back to a rule-based report with the same data.
+
 ## What's in the Report
 
-| Section | Data Source | What It Tells You |
-|---------|-----------|-------------------|
-| **Market Overview** | CoinGecko | BTC/ETH prices, 24h change, total market cap |
-| **Protocol TVL Changes** | DeFiLlama | Top 10 gainers and losers — where capital is flowing |
-| **Stablecoin Supply** | DeFiLlama | USDT/USDC/DAI supply changes — new money entering or leaving |
-| **DEX Trading Volume** | DeFiLlama | Top 10 DEXes by 24h volume — trading activity levels |
-| **Market Signals** | Derived | Bullish/bearish signals based on above data |
-| **Investment Considerations** | Derived | Actionable suggestions for investors |
+| Section | What It Tells You |
+|---------|-------------------|
+| **Market Overview** | BTC/ETH prices, market cap trend, trading volume |
+| **DeFi Protocol Analysis** | Where capital is flowing — TVL gainers and losers |
+| **Stablecoin Dynamics** | New money entering or leaving the crypto market |
+| **Trading Activity** | DEX volume spikes and what they signal |
+| **Risk Assessment** | Key risks to watch |
+| **Actionable Suggestions** | Recommendations by investor profile (conservative / moderate / aggressive) |
 
 ## Setup
 
@@ -21,18 +35,18 @@ Reports are automatically generated via GitHub Actions and posted as GitHub Issu
 
 1. Fork or clone this repo
 2. Create a `daily-report` label: `gh label create daily-report`
-3. (Optional) Add `COINGECKO_API_KEY` to repo secrets for better rate limits
-4. The workflow runs daily. Trigger manually: `Actions → Daily DeFi Report → Run workflow`
-
-**No API keys required** — all data sources are free. CoinGecko key is optional for higher rate limits.
+3. Add `ANTHROPIC_API_KEY` to repo secrets (`Settings → Secrets → Actions`)
+4. (Optional) Add `COINGECKO_API_KEY` for better rate limits
+5. The workflow runs daily. Trigger manually: `Actions → Daily DeFi Report → Run workflow`
 
 ### Local Usage
 
 ```bash
 pnpm install
-pnpm report                    # Generate and save to ~/.defi-radar/reports/
-pnpm report -- --stdout        # Print to terminal
-pnpm report -- --locale zh     # Chinese report
+export ANTHROPIC_API_KEY=sk-ant-...     # Required for AI analysis
+pnpm report -- --stdout                 # Print to terminal
+pnpm report -- --locale zh              # Chinese report
+pnpm report                             # Save to ~/.defi-radar/reports/
 ```
 
 ## Configuration
@@ -41,13 +55,22 @@ Optional config file at `~/.defi-radar/config.json`:
 
 ```json
 {
+  "anthropic": {
+    "apiKey": "sk-ant-...",
+    "model": "claude-sonnet-4-5-20250514"
+  },
   "coingecko": {
     "apiKey": "YOUR_OPTIONAL_KEY"
   }
 }
 ```
 
-Or set `COINGECKO_API_KEY` environment variable.
+Or use environment variables (recommended for CI):
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `ANTHROPIC_API_KEY` | Recommended | Enables AI-powered analysis. Without it, uses rule-based fallback |
+| `COINGECKO_API_KEY` | No | CoinGecko API key for higher rate limits |
 
 ## Development
 

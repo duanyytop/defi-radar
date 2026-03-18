@@ -20,6 +20,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.79.0",
     "zod": "^3.24.0"
   },
   "devDependencies": {

@@ -21,6 +21,7 @@ Options:
   --help, -h              Show this help message
 
 Environment variables:
+  ANTHROPIC_API_KEY       Anthropic API key (enables AI-powered analysis)
   COINGECKO_API_KEY       CoinGecko API key (optional, improves rate limits)
 `);
 }

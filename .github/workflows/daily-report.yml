@@ -15,6 +15,7 @@ jobs:
     timeout-minutes: 5
     env:
       COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
 
