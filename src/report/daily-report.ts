@@ -42,18 +42,24 @@ async function generateFromData(
       const provider = llmConfig.provider ?? 'anthropic';
       const model = llmConfig.model ?? 'claude-sonnet-4-5-20250514';
       console.error(`[llm] Generating ${locale} report with ${provider}/${model}...`);
-      const llmReport = await analyzeWithLLM(data, {
-        provider,
-        apiKey: llmConfig.apiKey,
-        model,
-        baseURL: llmConfig.baseURL,
-      }, locale);
+      const llmReport = await analyzeWithLLM(
+        data,
+        {
+          provider,
+          apiKey: llmConfig.apiKey,
+          model,
+          baseURL: llmConfig.baseURL,
+        },
+        locale,
+      );
       if (llmReport.length > 0) {
         console.error(`[llm] ${locale} report generated (${llmReport.length} chars)`);
         return llmReport;
       }
     } catch (err) {
-      console.error(`[llm] ${locale} failed, falling back to rule-based: ${err instanceof Error ? err.message : String(err)}`);
+      console.error(
+        `[llm] ${locale} failed, falling back to rule-based: ${err instanceof Error ? err.message : String(err)}`,
+      );
     }
   }
 
@@ -66,7 +72,15 @@ async function collectReportData(config: DefiRadarConfig): Promise<ReportData> {
   const [market, tvl, stablecoins, dexVolumes] = await Promise.all([
     getMarketOverview(apiKey).catch((err) => {
       console.error(`[market] failed: ${err instanceof Error ? err.message : String(err)}`);
-      return { btcPrice: 0, btcChange24h: 0, ethPrice: 0, ethChange24h: 0, totalMarketCap: 0, marketCapChange24h: 0, totalVolume24h: 0 };
+      return {
+        btcPrice: 0,
+        btcChange24h: 0,
+        ethPrice: 0,
+        ethChange24h: 0,
+        totalMarketCap: 0,
+        marketCapChange24h: 0,
+        totalVolume24h: 0,
+      };
     }),
     getProtocolTvls(10).catch((err) => {
       console.error(`[tvl] failed: ${err instanceof Error ? err.message : String(err)}`);
@@ -113,11 +127,12 @@ function deriveSignals(data: ReportData): MarketSignal[] {
   }
 
   // TVL signals
-  const avgTvlChange = data.topTvlGainers.length > 0
-    ? (data.topTvlGainers.reduce((s, p) => s + p.tvlChange1d, 0) +
-       data.topTvlLosers.reduce((s, p) => s + p.tvlChange1d, 0)) /
-      (data.topTvlGainers.length + data.topTvlLosers.length)
-    : 0;
+  const avgTvlChange =
+    data.topTvlGainers.length > 0
+      ? (data.topTvlGainers.reduce((s, p) => s + p.tvlChange1d, 0) +
+          data.topTvlLosers.reduce((s, p) => s + p.tvlChange1d, 0)) /
+        (data.topTvlGainers.length + data.topTvlLosers.length)
+      : 0;
 
   if (avgTvlChange < -3) {
     signals.push({
@@ -175,10 +190,16 @@ function formatReport(locale: Locale, data: ReportData): string {
   lines.push('');
   lines.push(`| | Price | ${t('change24h', locale)} |`);
   lines.push('|---|---:|---:|');
-  lines.push(`| BTC | $${formatNum(data.market.btcPrice)} | ${formatPct(data.market.btcChange24h)} |`);
-  lines.push(`| ETH | $${formatNum(data.market.ethPrice)} | ${formatPct(data.market.ethChange24h)} |`);
+  lines.push(
+    `| BTC | $${formatNum(data.market.btcPrice)} | ${formatPct(data.market.btcChange24h)} |`,
+  );
+  lines.push(
+    `| ETH | $${formatNum(data.market.ethPrice)} | ${formatPct(data.market.ethChange24h)} |`,
+  );
   lines.push('');
-  lines.push(`**${t('totalMarketCap', locale)}:** $${formatBig(data.market.totalMarketCap)} (${formatPct(data.market.marketCapChange24h)})`);
+  lines.push(
+    `**${t('totalMarketCap', locale)}:** $${formatBig(data.market.totalMarketCap)} (${formatPct(data.market.marketCapChange24h)})`,
+  );
   lines.push(`**${t('totalVolume', locale)}:** $${formatBig(data.market.totalVolume24h)}`);
   lines.push('');
 
@@ -194,7 +215,9 @@ function formatReport(locale: Locale, data: ReportData): string {
       lines.push(`| Protocol | TVL | 1d | 7d | Category |`);
       lines.push('|---|---:|---:|---:|---|');
       for (const p of data.topTvlGainers) {
-        lines.push(`| ${p.name} | $${formatBig(p.tvl)} | ${formatPct(p.tvlChange1d)} | ${formatPct(p.tvlChange7d)} | ${p.category} |`);
+        lines.push(
+          `| ${p.name} | $${formatBig(p.tvl)} | ${formatPct(p.tvlChange1d)} | ${formatPct(p.tvlChange7d)} | ${p.category} |`,
+        );
       }
       lines.push('');
     }
@@ -204,7 +227,9 @@ function formatReport(locale: Locale, data: ReportData): string {
       lines.push(`| Protocol | TVL | 1d | 7d | Category |`);
       lines.push('|---|---:|---:|---:|---|');
       for (const p of data.topTvlLosers) {
-        lines.push(`| ${p.name} | $${formatBig(p.tvl)} | ${formatPct(p.tvlChange1d)} | ${formatPct(p.tvlChange7d)} | ${p.category} |`);
+        lines.push(
+          `| ${p.name} | $${formatBig(p.tvl)} | ${formatPct(p.tvlChange1d)} | ${formatPct(p.tvlChange7d)} | ${p.category} |`,
+        );
       }
       lines.push('');
     }
@@ -216,10 +241,14 @@ function formatReport(locale: Locale, data: ReportData): string {
   if (data.stablecoins.length === 0) {
     lines.push(t('noStablecoinData', locale));
   } else {
-    lines.push(`| Stablecoin | Supply | ${t('supplyChange1d', locale)} | ${t('supplyChange7d', locale)} |`);
+    lines.push(
+      `| Stablecoin | Supply | ${t('supplyChange1d', locale)} | ${t('supplyChange7d', locale)} |`,
+    );
     lines.push('|---|---:|---:|---:|');
     for (const s of data.stablecoins) {
-      lines.push(`| ${s.symbol} (${s.name}) | $${formatBig(s.totalSupply)} | ${formatPct(s.supplyChange1d)} | ${formatPct(s.supplyChange7d)} |`);
+      lines.push(
+        `| ${s.symbol} (${s.name}) | $${formatBig(s.totalSupply)} | ${formatPct(s.supplyChange1d)} | ${formatPct(s.supplyChange7d)} |`,
+      );
     }
     lines.push('');
   }
@@ -275,11 +304,12 @@ function deriveSuggestions(locale: Locale, data: ReportData): string[] {
     suggestions.push(t('suggPriceRise', locale));
   }
 
-  const avgTvl = data.topTvlGainers.length > 0
-    ? (data.topTvlGainers.reduce((s, p) => s + p.tvlChange1d, 0) +
-       data.topTvlLosers.reduce((s, p) => s + p.tvlChange1d, 0)) /
-      (data.topTvlGainers.length + data.topTvlLosers.length)
-    : 0;
+  const avgTvl =
+    data.topTvlGainers.length > 0
+      ? (data.topTvlGainers.reduce((s, p) => s + p.tvlChange1d, 0) +
+          data.topTvlLosers.reduce((s, p) => s + p.tvlChange1d, 0)) /
+        (data.topTvlGainers.length + data.topTvlLosers.length)
+      : 0;
   if (avgTvl < -3) suggestions.push(t('suggTvlDrop', locale));
   else if (avgTvl > 3) suggestions.push(t('suggTvlRise', locale));
 

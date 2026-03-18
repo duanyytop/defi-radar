@@ -43,16 +43,24 @@ function buildDataContext(data: ReportData): string {
   lines.push('## Raw Market Data');
   lines.push('');
   lines.push('### Prices & Market Cap');
-  lines.push(`- BTC: $${data.market.btcPrice.toLocaleString()} (${data.market.btcChange24h >= 0 ? '+' : ''}${data.market.btcChange24h.toFixed(2)}% 24h)`);
-  lines.push(`- ETH: $${data.market.ethPrice.toLocaleString()} (${data.market.ethChange24h >= 0 ? '+' : ''}${data.market.ethChange24h.toFixed(2)}% 24h)`);
-  lines.push(`- Total Market Cap: $${(data.market.totalMarketCap / 1e9).toFixed(1)}B (${data.market.marketCapChange24h >= 0 ? '+' : ''}${data.market.marketCapChange24h.toFixed(2)}% 24h)`);
+  lines.push(
+    `- BTC: $${data.market.btcPrice.toLocaleString()} (${data.market.btcChange24h >= 0 ? '+' : ''}${data.market.btcChange24h.toFixed(2)}% 24h)`,
+  );
+  lines.push(
+    `- ETH: $${data.market.ethPrice.toLocaleString()} (${data.market.ethChange24h >= 0 ? '+' : ''}${data.market.ethChange24h.toFixed(2)}% 24h)`,
+  );
+  lines.push(
+    `- Total Market Cap: $${(data.market.totalMarketCap / 1e9).toFixed(1)}B (${data.market.marketCapChange24h >= 0 ? '+' : ''}${data.market.marketCapChange24h.toFixed(2)}% 24h)`,
+  );
   lines.push(`- Total 24h Volume: $${(data.market.totalVolume24h / 1e9).toFixed(1)}B`);
   lines.push('');
 
   if (data.topTvlGainers.length > 0) {
     lines.push('### Protocol TVL — Top Gainers (24h)');
     for (const p of data.topTvlGainers) {
-      lines.push(`- ${p.name} (${p.category}): $${(p.tvl / 1e9).toFixed(2)}B TVL, ${p.tvlChange1d >= 0 ? '+' : ''}${p.tvlChange1d.toFixed(2)}% 1d, ${p.tvlChange7d >= 0 ? '+' : ''}${p.tvlChange7d.toFixed(2)}% 7d`);
+      lines.push(
+        `- ${p.name} (${p.category}): $${(p.tvl / 1e9).toFixed(2)}B TVL, ${p.tvlChange1d >= 0 ? '+' : ''}${p.tvlChange1d.toFixed(2)}% 1d, ${p.tvlChange7d >= 0 ? '+' : ''}${p.tvlChange7d.toFixed(2)}% 7d`,
+      );
     }
     lines.push('');
   }
@@ -60,7 +68,9 @@ function buildDataContext(data: ReportData): string {
   if (data.topTvlLosers.length > 0) {
     lines.push('### Protocol TVL — Top Losers (24h)');
     for (const p of data.topTvlLosers) {
-      lines.push(`- ${p.name} (${p.category}): $${(p.tvl / 1e9).toFixed(2)}B TVL, ${p.tvlChange1d >= 0 ? '+' : ''}${p.tvlChange1d.toFixed(2)}% 1d, ${p.tvlChange7d >= 0 ? '+' : ''}${p.tvlChange7d.toFixed(2)}% 7d`);
+      lines.push(
+        `- ${p.name} (${p.category}): $${(p.tvl / 1e9).toFixed(2)}B TVL, ${p.tvlChange1d >= 0 ? '+' : ''}${p.tvlChange1d.toFixed(2)}% 1d, ${p.tvlChange7d >= 0 ? '+' : ''}${p.tvlChange7d.toFixed(2)}% 7d`,
+      );
     }
     lines.push('');
   }
@@ -68,7 +78,9 @@ function buildDataContext(data: ReportData): string {
   if (data.stablecoins.length > 0) {
     lines.push('### Stablecoin Supply');
     for (const s of data.stablecoins) {
-      lines.push(`- ${s.symbol} (${s.name}): $${(s.totalSupply / 1e9).toFixed(2)}B supply, ${s.supplyChange1d >= 0 ? '+' : ''}${s.supplyChange1d.toFixed(3)}% 1d, ${s.supplyChange7d >= 0 ? '+' : ''}${s.supplyChange7d.toFixed(3)}% 7d`);
+      lines.push(
+        `- ${s.symbol} (${s.name}): $${(s.totalSupply / 1e9).toFixed(2)}B supply, ${s.supplyChange1d >= 0 ? '+' : ''}${s.supplyChange1d.toFixed(3)}% 1d, ${s.supplyChange7d >= 0 ? '+' : ''}${s.supplyChange7d.toFixed(3)}% 7d`,
+      );
     }
     lines.push('');
   }
@@ -76,7 +88,9 @@ function buildDataContext(data: ReportData): string {
   if (data.dexVolumes.length > 0) {
     lines.push('### DEX Trading Volume (24h)');
     for (const d of data.dexVolumes) {
-      lines.push(`- ${d.name}: $${(d.volume24h / 1e6).toFixed(1)}M (${d.volumeChange1d >= 0 ? '+' : ''}${d.volumeChange1d.toFixed(1)}% vs prev day)`);
+      lines.push(
+        `- ${d.name}: $${(d.volume24h / 1e6).toFixed(1)}M (${d.volumeChange1d >= 0 ? '+' : ''}${d.volumeChange1d.toFixed(1)}% vs prev day)`,
+      );
     }
     lines.push('');
   }

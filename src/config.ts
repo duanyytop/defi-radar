@@ -49,7 +49,9 @@ export function loadConfig(): DefiRadarConfig {
 
   const result = ConfigSchema.safeParse(merged);
   if (!result.success) {
-    const issues = result.error.issues.map((i) => `  - ${i.path.join('.')}: ${i.message}`).join('\n');
+    const issues = result.error.issues
+      .map((i) => `  - ${i.path.join('.')}: ${i.message}`)
+      .join('\n');
     throw new Error(`Invalid config:\n${issues}`);
   }
 

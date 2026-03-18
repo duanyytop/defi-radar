@@ -44,19 +44,25 @@ describe('DeFiLlama: getStablecoinSupply', () => {
         Promise.resolve({
           peggedAssets: [
             {
-              id: '1', name: 'Tether', symbol: 'USDT',
+              id: '1',
+              name: 'Tether',
+              symbol: 'USDT',
               circulating: { peggedUSD: 110e9 },
               circulatingPrevDay: { peggedUSD: 109e9 },
               circulatingPrevWeek: { peggedUSD: 107e9 },
             },
             {
-              id: '2', name: 'USD Coin', symbol: 'USDC',
+              id: '2',
+              name: 'USD Coin',
+              symbol: 'USDC',
               circulating: { peggedUSD: 50e9 },
               circulatingPrevDay: { peggedUSD: 49.5e9 },
               circulatingPrevWeek: { peggedUSD: 48e9 },
             },
             {
-              id: '3', name: 'Some Random', symbol: 'XYZ',
+              id: '3',
+              name: 'Some Random',
+              symbol: 'XYZ',
               circulating: { peggedUSD: 1e6 },
               circulatingPrevDay: { peggedUSD: 1e6 },
               circulatingPrevWeek: { peggedUSD: 1e6 },
