@@ -1,3 +1,4 @@
+import { writeFileSync } from 'node:fs';
 import { loadConfig } from './config.js';
 import { generateBilingualReport } from './report/index.js';
 
@@ -5,9 +6,9 @@ async function main(): Promise<void> {
   const config = loadConfig();
   const { en, zh } = await generateBilingualReport(config);
 
-  console.log(en);
-  console.log('\n---\n');
-  console.log(zh);
+  writeFileSync('report-en.md', en, 'utf-8');
+  writeFileSync('report-zh.md', zh, 'utf-8');
+  console.error('Reports written: report-en.md, report-zh.md');
 }
 
 main().catch((err) => {

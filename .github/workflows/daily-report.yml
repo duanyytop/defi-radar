@@ -15,7 +15,6 @@ jobs:
     timeout-minutes: 10
     env:
       COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
-      # LLM config — supports ANTHROPIC_API_KEY/ANTHROPIC_BASE_URL or LLM_* variants
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
       LLM_PROVIDER: ${{ secrets.LLM_PROVIDER }}
@@ -39,8 +38,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Generate bilingual report
-        run: node dist/main.js > report.md 2> logs.txt || true
+      - name: Generate reports
+        run: node dist/main.js 2> logs.txt || true
 
       - name: Show debug logs
         if: always()
@@ -48,15 +47,28 @@ jobs:
           echo "=== Logs ==="
           cat logs.txt || true
           echo ""
-          echo "=== Report preview ==="
-          head -40 report.md || true
+          echo "=== EN preview ==="
+          head -30 report-en.md || true
+          echo ""
+          echo "=== ZH preview ==="
+          head -30 report-zh.md || true
 
-      - name: Create GitHub issue
+      - name: Create English issue
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           DATE=$(date -u +%Y-%m-%d)
           gh issue create \
             --title "DeFi Daily Report — ${DATE}" \
-            --body-file report.md \
+            --body-file report-en.md \
+            --label "daily-report"
+
+      - name: Create Chinese issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          gh issue create \
+            --title "DeFi 每日报告 — ${DATE}" \
+            --body-file report-zh.md \
             --label "daily-report"
