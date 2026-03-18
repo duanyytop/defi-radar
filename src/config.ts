@@ -18,13 +18,16 @@ export function loadConfig(): DefiRadarConfig {
     envOverrides.coingecko = { apiKey: process.env.COINGECKO_API_KEY };
   }
   // LLM config from env vars
-  const llmApiKey = process.env.LLM_API_KEY ?? process.env.ANTHROPIC_API_KEY;
-  const llmBaseURL = process.env.LLM_BASE_URL ?? process.env.ANTHROPIC_BASE_URL;
+  // Note: GitHub Actions sets missing secrets to empty string "", not undefined
+  const llmApiKey = process.env.LLM_API_KEY || process.env.ANTHROPIC_API_KEY;
+  const llmBaseURL = process.env.LLM_BASE_URL || process.env.ANTHROPIC_BASE_URL;
+  const llmProvider = process.env.LLM_PROVIDER || 'anthropic';
+  const llmModel = process.env.LLM_MODEL || undefined;
   if (llmApiKey) {
     envOverrides.llm = {
-      provider: process.env.LLM_PROVIDER ?? 'anthropic',
+      provider: llmProvider,
       apiKey: llmApiKey,
-      ...(process.env.LLM_MODEL && { model: process.env.LLM_MODEL }),
+      ...(llmModel && { model: llmModel }),
       ...(llmBaseURL && { baseURL: llmBaseURL }),
     };
   }
