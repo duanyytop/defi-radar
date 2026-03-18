@@ -1,6 +1,7 @@
 import type { DefiRadarConfig, ReportData, MarketSignal } from '../types.js';
 import { getMarketOverview } from '../data/coingecko.js';
 import { getProtocolTvls, getStablecoinSupply, getDexVolumes } from '../data/defillama.js';
+import { analyzeWithLLM } from '../data/llm.js';
 import { type Locale, t } from './i18n.js';
 
 export async function generateDailyReport(
@@ -9,6 +10,30 @@ export async function generateDailyReport(
 ): Promise<string> {
   const data = await collectReportData(config);
   data.signals = deriveSignals(data);
+
+  // Use LLM analysis if API key is configured
+  const llmConfig = config.llm;
+  if (llmConfig?.apiKey) {
+    try {
+      const provider = llmConfig.provider ?? 'anthropic';
+      const model = llmConfig.model ?? 'claude-sonnet-4-5-20250514';
+      console.error(`[llm] Generating report with ${provider}/${model}...`);
+      const llmReport = await analyzeWithLLM(data, {
+        provider,
+        apiKey: llmConfig.apiKey,
+        model,
+        baseURL: llmConfig.baseURL,
+      }, locale);
+      if (llmReport.length > 0) {
+        console.error(`[llm] Report generated (${llmReport.length} chars)`);
+        return llmReport;
+      }
+    } catch (err) {
+      console.error(`[llm] Failed, falling back to rule-based: ${err instanceof Error ? err.message : String(err)}`);
+    }
+  }
+
+  // Fallback: rule-based report
   return formatReport(locale, data);
 }
 
