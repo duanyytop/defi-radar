@@ -10,14 +10,38 @@ export async function generateDailyReport(
 ): Promise<string> {
   const data = await collectReportData(config);
   data.signals = deriveSignals(data);
+  return generateFromData(config, data, locale);
+}
 
-  // Use LLM analysis if API key is configured
+/**
+ * Generate bilingual report (EN + ZH) from a single data fetch.
+ * Data is collected once, then LLM is called twice with different locales.
+ */
+export async function generateBilingualReport(
+  config: DefiRadarConfig,
+): Promise<{ en: string; zh: string }> {
+  const data = await collectReportData(config);
+  data.signals = deriveSignals(data);
+
+  const [en, zh] = await Promise.all([
+    generateFromData(config, data, 'en'),
+    generateFromData(config, data, 'zh'),
+  ]);
+
+  return { en, zh };
+}
+
+async function generateFromData(
+  config: DefiRadarConfig,
+  data: ReportData,
+  locale: Locale,
+): Promise<string> {
   const llmConfig = config.llm;
   if (llmConfig?.apiKey) {
     try {
       const provider = llmConfig.provider ?? 'anthropic';
       const model = llmConfig.model ?? 'claude-sonnet-4-5-20250514';
-      console.error(`[llm] Generating report with ${provider}/${model}...`);
+      console.error(`[llm] Generating ${locale} report with ${provider}/${model}...`);
       const llmReport = await analyzeWithLLM(data, {
         provider,
         apiKey: llmConfig.apiKey,
@@ -25,15 +49,14 @@ export async function generateDailyReport(
         baseURL: llmConfig.baseURL,
       }, locale);
       if (llmReport.length > 0) {
-        console.error(`[llm] Report generated (${llmReport.length} chars)`);
+        console.error(`[llm] ${locale} report generated (${llmReport.length} chars)`);
         return llmReport;
       }
     } catch (err) {
-      console.error(`[llm] Failed, falling back to rule-based: ${err instanceof Error ? err.message : String(err)}`);
+      console.error(`[llm] ${locale} failed, falling back to rule-based: ${err instanceof Error ? err.message : String(err)}`);
     }
   }
 
-  // Fallback: rule-based report
   return formatReport(locale, data);
 }
 

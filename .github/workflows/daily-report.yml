@@ -12,7 +12,7 @@ permissions:
 jobs:
   generate-report:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     env:
       COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
       # LLM config — supports ANTHROPIC_API_KEY/ANTHROPIC_BASE_URL or LLM_* variants
@@ -39,8 +39,8 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Generate report
-        run: node dist/cli.js report --stdout > report.md 2> logs.txt || true
+      - name: Generate bilingual report
+        run: node dist/cli.js report --both --stdout > report.md 2> logs.txt || true
 
       - name: Show debug logs
         if: always()
