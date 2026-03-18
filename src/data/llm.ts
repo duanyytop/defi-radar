@@ -2,17 +2,37 @@ import Anthropic from '@anthropic-ai/sdk';
 import OpenAI from 'openai';
 import type { ReportData } from '../types.js';
 
-const SYSTEM_PROMPT = `You are a senior market analyst writing a daily intelligence report covering both DeFi/crypto markets and China A-share markets. Your readers are investors who trade across both markets.
+const SYSTEM_PROMPT = `You are a senior cross-market analyst writing a daily intelligence report for investors who allocate capital across US stocks, Hong Kong stocks, China A-shares, and crypto/DeFi. Your core value is connecting the dots across these four markets.
+
+Analysis Framework — use these specific lenses for cross-market analysis:
+
+1. **Risk Appetite Chain**: US equities set the global tone → HK follows US overnight → A-shares react at open → Crypto amplifies (higher beta). Trace this transmission chain in the data.
+
+2. **Capital Rotation Signals**:
+   - Stablecoin supply ↑ + stock markets flat/down = capital rotating into crypto
+   - Northbound flow ↑ + HK down = foreign funds preferring A-shares over HK
+   - DeFi TVL ↑ + stablecoin supply flat = existing crypto capital moving on-chain
+   - US tech up + HSTECH up + ChiNext up = global tech rally, check if crypto follows
+
+3. **Divergence Alerts** (most valuable signals):
+   - US up but crypto down = crypto-specific headwind (regulatory? liquidation?)
+   - A-shares up but northbound flow negative = domestic-driven rally, foreign skepticism
+   - BTC up but DeFi TVL down = speculative momentum, not fundamental
+   - All three stock markets down but stablecoins increasing = smart money preparing to buy dips
+
+4. **Macro Linkages**:
+   - USD strength → typically bearish for crypto and HK
+   - China stimulus signals → bullish A-shares and HK, check crypto reaction
+   - US Fed hawkish → bearish everything, watch for correlation spike
 
 Guidelines:
 - Base every claim on the provided data. Do not fabricate numbers.
-- Identify correlations across markets (e.g., crypto price action vs A-share sentiment, northbound flow trends vs risk appetite, stablecoin supply vs capital rotation).
-- Distinguish between noise and meaningful signals. Not every small change matters.
+- Lead with the most important cross-market insight, not a generic summary.
+- When markets diverge, explain WHY — that's where the alpha is.
 - Provide specific, actionable suggestions — not generic advice.
 - Use bullet points and tables for readability.
 - Be concise. Investors are busy.
-- Include a risk assessment section covering both markets.
-- Note: A-share data reflects the previous trading day's close.
+- Stock market data reflects the previous trading day's close.
 - Write in the language specified by the user.`;
 
 function buildUserPrompt(data: ReportData, locale: string): string {
@@ -20,26 +40,26 @@ function buildUserPrompt(data: ReportData, locale: string): string {
   const date = new Date().toISOString().split('T')[0];
   const lang = locale === 'zh' ? 'Chinese (简体中文)' : 'English';
 
-  return `Here is today's (${date}) DeFi market data:
+  return `Here is today's (${date}) market data across crypto, US, HK, and A-share markets:
 
 ${dataContext}
 
-Please write a comprehensive market intelligence report in **${lang}** based on this data. The report should include:
+Write a cross-market intelligence report in **${lang}**. Structure:
 
-1. **Crypto Market Overview** — Key price movements and what they indicate
-2. **DeFi Protocol Analysis** — Notable TVL changes and what's driving capital flows
-3. **Stablecoin Dynamics** — What supply changes tell us about market sentiment
-4. **DEX Trading Activity** — Volume analysis and what it signals
-5. **US Market Recap** — Key index movements and implications for global risk sentiment
-6. **Hong Kong Market Recap** — HSI/HSCEI/HSTECH performance and what it signals for China exposure
-7. **A-Share Market Recap** — Index performance, northbound flow significance, sector rotation, and market breadth analysis
-8. **Cross-Market Correlation** — How US, HK, A-share, and crypto markets are interacting (risk appetite, capital flows, macro sentiment, currency dynamics)
-9. **Risk Assessment** — Key risks across all markets
-10. **Actionable Suggestions** — Specific, data-backed recommendations for different investor profiles (conservative / moderate / aggressive)
+1. **Key Insight** — Lead with the single most important cross-market signal today (1-2 sentences)
+2. **Global Risk Sentiment** — US → HK → A-share transmission chain. Is risk on or off? Are markets aligned or diverging?
+3. **Crypto & DeFi** — BTC/ETH action, TVL trends, stablecoin supply shifts. How does crypto relate to equity markets today?
+4. **US Market** — Index performance, what it means for global capital flows
+5. **Hong Kong Market** — HSI/HSCEI/HSTECH, China exposure sentiment
+6. **A-Share Market** — Indices, northbound flow, sector rotation, breadth. Domestic vs foreign sentiment
+7. **Cross-Market Divergences** — Any markets moving in opposite directions? Explain why and what it implies
+8. **Capital Flow Map** — Where is money moving? (stablecoin supply changes, northbound flow, DeFi TVL, sector rotation — connect the dots)
+9. **Risk Matrix** — Top 3 risks across all markets, ranked by probability and impact
+10. **Action Plan** — Specific recommendations for: conservative (preserve capital), moderate (selective positioning), aggressive (high-conviction plays)
 
-Format the report in Markdown with the title: "# Market Intelligence Report — ${date}"
+Format in Markdown with title: "# Market Intelligence Report — ${date}"
 
-End with a disclaimer that this is AI-generated analysis based on public data and does not constitute financial advice.`;
+End with a disclaimer that this is AI-generated analysis for reference only, not financial advice.`;
 }
 
 function buildDataContext(data: ReportData): string {
