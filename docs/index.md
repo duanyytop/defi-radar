@@ -6,19 +6,19 @@ lang: en
 
 [View Archive →](archive)
 
-# AI Market Radar — Daily Intelligence Report — 2026-05-28
+# AI Market Radar — Daily Intelligence Report — 2026-05-29
 
-**Generated at:** 2026-05-28T00:42:20.085Z
+**Generated at:** 2026-05-29T00:48:49.053Z
 
 ## Market Overview
 
 | | Price | 24h Change |
 |---|---:|---:|
-| BTC | $74,423 | -1.89% |
-| ETH | $2,022.81 | -2.52% |
+| BTC | $73,687 | -0.98% |
+| ETH | $2,012.26 | -0.57% |
 
-**Total Market Cap:** $2.58T (-1.74%)
-**24h Volume:** $91.56B
+**Total Market Cap:** $2.56T (-0.76%)
+**24h Volume:** $102.34B
 
 ## Protocol TVL Changes
 
@@ -26,54 +26,54 @@ lang: en
 
 | Protocol | TVL | 1d | 7d | Category |
 |---|---:|---:|---:|---|
-| OSL | $71.6M | +69.70% | +98.90% | CEX |
-| Marinade Select | $96.3M | +27.26% | +23.75% | Staking Pool |
-| xStocks | $524.6M | +19.70% | +22.15% | RWA |
-| RIF ON CHAIN | $20.9M | +19.40% | -4.93% | Dual-Token Stablecoin |
-| Polygon zkEVM Bridge | $85.0M | +14.42% | +19.68% | Canonical Bridge |
-| BitMart | $17.2M | +13.82% | +274.28% | CEX |
-| Vesper | $48.4M | +10.22% | +10.89% | Yield Aggregator |
-| EtherFi Borrowing Market | $166.8M | +10.15% | +1.56% | Lending |
-| Uniswap V4 | $742.0M | +8.12% | -1.65% | Dexs |
-| Saturn | $130.4M | +7.49% | +26.59% | Stablecoin Wrapper |
+| OpenEden TBILL | $168.6M | +146.43% | -0.02% | RWA |
+| OSL | $134.1M | +87.14% | +221.72% | CEX |
+| Origin ARM | $13.3M | +71.83% | +75.98% | Yield |
+| Lombard Vaults | $61.4M | +23.49% | -6.10% | Onchain Capital Allocator |
+| Blend Pools V2 | $127.7M | +23.23% | +32.35% | Lending |
+| Aave V4 | $72.4M | +22.53% | +31.72% | Lending |
+| CEX.IO | $10.2M | +20.05% | +18.22% | CEX |
+| Stellar DEX | $16.4M | +14.55% | +20.71% | Dexs |
+| SparkLend | $3.33B | +10.76% | -2.26% | Lending |
+| Saturn | $143.6M | +10.16% | +38.39% | Stablecoin Wrapper |
 
 ### Top Losers (TVL 24h)
 
 | Protocol | TVL | 1d | 7d | Category |
 |---|---:|---:|---:|---|
-| GAIB | $126.4M | -37.35% | -37.35% | RWA |
-| Unitas | $65.1M | -22.72% | -18.14% | Basis Trading |
-| Lombard Vaults | $49.5M | -22.10% | -23.77% | Onchain Capital Allocator |
-| Stake DAO | $121.5M | -22.03% | -22.46% | Yield |
-| Wildcat Protocol | $13.1M | -19.35% | +57.78% | Uncollateralized Lending |
-| Yearn Curating | $74.2M | -16.06% | +15.36% | Risk Curators |
-| SunX Bridge | $30.8M | -15.00% | -20.76% | Bridge |
-| Synapse | $13.9M | -14.77% | -23.77% | Cross Chain Bridge |
-| Current | $12.2M | -14.30% | -4.43% | Lending |
-| Venus Flux | $13.3M | -12.90% | -20.44% | Lending |
+| River Omni-CDP | $92.0M | -30.43% | -32.63% | CeDeFi |
+| Stacks sBTC | $217.6M | -28.73% | -31.56% | Bridge |
+| Kodiak Islands | $36.0M | -24.70% | -26.90% | Liquidity Manager |
+| Reservoir Protocol | $54.2M | -24.63% | -35.13% | CDP |
+| Clearpool TPOOL | $26.9M | -22.88% | -23.00% | RWA |
+| Hypha | $11.2M | -22.11% | -26.80% | Liquid Staking |
+| Lombard BTC.b | $177.6M | -20.77% | -23.95% | Bridge |
+| Resolv | $31.2M | -18.42% | +3.51% | Basis Trading |
+| DxSale | $20.7M | -17.79% | -22.76% | Launchpad |
+| World Chain | $261.1M | -17.41% | +2.10% | Canonical Bridge |
 
 ## Stablecoin Supply
 
 | Stablecoin | Supply | 1d Change | 7d Change |
 |---|---:|---:|---:|
-| USDT (Tether) | $189.13B | -0.11% | -0.54% |
-| USDC (USD Coin) | $76.44B | -0.00% | +0.08% |
-| DAI (Dai) | $4.60B | +0.26% | +0.25% |
+| USDT (Tether) | $188.67B | -0.33% | -0.47% |
+| USDC (USD Coin) | $76.29B | -0.38% | +0.03% |
+| DAI (Dai) | $4.60B | -0.19% | +0.25% |
 
 ## DEX Trading Volume
 
 | DEX | 24h Volume | 24h Change |
 |---|---:|---:|
-| Uniswap V4 | $701.4M | -15.78% |
-| Aerodrome Slipstream | $630.4M | -3.70% |
-| PancakeSwap AMM V3 | $557.6M | +0.00% |
-| Uniswap V3 | $429.8M | +0.00% |
-| Orca DEX | $225.9M | +18.03% |
-| Kalshi | $205.3M | +0.00% |
-| Fluid DEX | $198.7M | +3.66% |
-| Hyperliquid Spot Orderbook | $181.4M | +0.00% |
-| Raydium AMM | $179.4M | +22.79% |
-| BisonFi | $176.7M | +0.00% |
+| Uniswap V4 | $804.1M | +11.26% |
+| Aerodrome Slipstream | $732.7M | +5.41% |
+| Uniswap V3 | $616.3M | +0.00% |
+| PancakeSwap AMM V3 | $548.8M | +0.00% |
+| Fluid DEX | $250.6M | +25.38% |
+| Orca DEX | $247.5M | +8.26% |
+| PancakeSwap Infinity | $217.4M | +20.39% |
+| Kalshi | $203.0M | +0.00% |
+| Hyperliquid Spot Orderbook | $196.7M | +0.00% |
+| Curve DEX | $195.0M | +83.58% |
 
 ## US Market (Previous Close)
 
@@ -87,17 +87,19 @@ lang: en
 
 | Index | Close | 24h Change |
 |---|---:|---:|
-| 恒生指数 | 25,328.23 | -1.06% |
-| 国企指数 | 8,463.02 | -1.33% |
-| 恒生科技 | 4,907.57 | -0.79% |
+| 恒生指数 | 25,006.16 | -1.27% |
+| 国企指数 | 8,364.41 | -1.17% |
+| 恒生科技 | 4,888.58 | -0.39% |
 
 ## Market Signals
 
-Market conditions stable — no significant signals detected
+- [SIGNIFICANT] [BULLISH] Average protocol TVL change: +10.1%
+- [NOTABLE] [BEARISH] Stablecoin supply -0.90% (1d)
 
 ## Investment Considerations
 
-- Market conditions stable — no significant signals detected
+- DeFi TVL growing — capital flowing into protocols, confidence building
+- Stablecoin supply contracting — capital may be exiting the crypto market
 
 ---
 *This report is generated from DeFiLlama and CoinGecko public APIs. It is for informational purposes only and does not constitute financial advice. Always do your own research.*
