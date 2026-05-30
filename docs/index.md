@@ -6,100 +6,79 @@ lang: en
 
 [View Archive →](archive)
 
-# AI Market Radar — Daily Intelligence Report — 2026-05-29
+# Market Intelligence Report — 2026-05-30
 
-**Generated at:** 2026-05-29T00:48:49.053Z
+## 1. Key Insight
 
-## Market Overview
-
-| | Price | 24h Change |
-|---|---:|---:|
-| BTC | $73,687 | -0.98% |
-| ETH | $2,012.26 | -0.57% |
-
-**Total Market Cap:** $2.56T (-0.76%)
-**24h Volume:** $102.34B
-
-## Protocol TVL Changes
-
-### Top Gainers (TVL 24h)
-
-| Protocol | TVL | 1d | 7d | Category |
-|---|---:|---:|---:|---|
-| OpenEden TBILL | $168.6M | +146.43% | -0.02% | RWA |
-| OSL | $134.1M | +87.14% | +221.72% | CEX |
-| Origin ARM | $13.3M | +71.83% | +75.98% | Yield |
-| Lombard Vaults | $61.4M | +23.49% | -6.10% | Onchain Capital Allocator |
-| Blend Pools V2 | $127.7M | +23.23% | +32.35% | Lending |
-| Aave V4 | $72.4M | +22.53% | +31.72% | Lending |
-| CEX.IO | $10.2M | +20.05% | +18.22% | CEX |
-| Stellar DEX | $16.4M | +14.55% | +20.71% | Dexs |
-| SparkLend | $3.33B | +10.76% | -2.26% | Lending |
-| Saturn | $143.6M | +10.16% | +38.39% | Stablecoin Wrapper |
-
-### Top Losers (TVL 24h)
-
-| Protocol | TVL | 1d | 7d | Category |
-|---|---:|---:|---:|---|
-| River Omni-CDP | $92.0M | -30.43% | -32.63% | CeDeFi |
-| Stacks sBTC | $217.6M | -28.73% | -31.56% | Bridge |
-| Kodiak Islands | $36.0M | -24.70% | -26.90% | Liquidity Manager |
-| Reservoir Protocol | $54.2M | -24.63% | -35.13% | CDP |
-| Clearpool TPOOL | $26.9M | -22.88% | -23.00% | RWA |
-| Hypha | $11.2M | -22.11% | -26.80% | Liquid Staking |
-| Lombard BTC.b | $177.6M | -20.77% | -23.95% | Bridge |
-| Resolv | $31.2M | -18.42% | +3.51% | Basis Trading |
-| DxSale | $20.7M | -17.79% | -22.76% | Launchpad |
-| World Chain | $261.1M | -17.41% | +2.10% | Canonical Bridge |
-
-## Stablecoin Supply
-
-| Stablecoin | Supply | 1d Change | 7d Change |
-|---|---:|---:|---:|
-| USDT (Tether) | $188.67B | -0.33% | -0.47% |
-| USDC (USD Coin) | $76.29B | -0.38% | +0.03% |
-| DAI (Dai) | $4.60B | -0.19% | +0.25% |
-
-## DEX Trading Volume
-
-| DEX | 24h Volume | 24h Change |
-|---|---:|---:|
-| Uniswap V4 | $804.1M | +11.26% |
-| Aerodrome Slipstream | $732.7M | +5.41% |
-| Uniswap V3 | $616.3M | +0.00% |
-| PancakeSwap AMM V3 | $548.8M | +0.00% |
-| Fluid DEX | $250.6M | +25.38% |
-| Orca DEX | $247.5M | +8.26% |
-| PancakeSwap Infinity | $217.4M | +20.39% |
-| Kalshi | $203.0M | +0.00% |
-| Hyperliquid Spot Orderbook | $196.7M | +0.00% |
-| Curve DEX | $195.0M | +83.58% |
-
-## US Market (Previous Close)
-
-| Index | Close | 24h Change |
-|---|---:|---:|
-| 道琼斯 | 46,247.29 | +0.65% |
-| 纳斯达克 | 22,484.07 | +0.44% |
-| 标普500 | 6,643.7 | +0.59% |
-
-## Hong Kong Market (Previous Close)
-
-| Index | Close | 24h Change |
-|---|---:|---:|
-| 恒生指数 | 25,006.16 | -1.27% |
-| 国企指数 | 8,364.41 | -1.17% |
-| 恒生科技 | 4,888.58 | -0.39% |
-
-## Market Signals
-
-- [SIGNIFICANT] [BULLISH] Average protocol TVL change: +10.1%
-- [NOTABLE] [BEARISH] Stablecoin supply -0.90% (1d)
-
-## Investment Considerations
-
-- DeFi TVL growing — capital flowing into protocols, confidence building
-- Stablecoin supply contracting — capital may be exiting the crypto market
+**Stablecoins are bleeding while equities rally — USDT and USDC both contracted ~0.45% in 24h despite US stocks hitting fresh highs, signaling capital is rotating *out* of crypto dry powder and likely into traditional risk assets.** This is a bearish divergence for crypto near-term momentum.
 
 ---
-*This report is generated from DeFiLlama and CoinGecko public APIs. It is for informational purposes only and does not constitute financial advice. Always do your own research.*
+
+## 2. Global Risk Sentiment
+
+| Market | Performance | Signal |
+|--------|-------------|--------|
+| US Equities | S&P 500 +0.59%, Nasdaq +0.44%, Dow +0.65% | Risk-on, broad-based |
+| Hong Kong | HSI +0.70%, HSCEI +0.73%, HSTECH -0.09% | Mixed; value China on, tech off |
+| Crypto | BTC -0.39%, ETH -0.07%, Total MC flat | Defensive, underperforming |
+
+**Transmission chain**: US risk-on → HK value names catch bid → Crypto *fails* to amplify. The beta chain is broken. Crypto is not following the equity rally, and HK tech specifically rejected the move.
+
+---
+
+## 3. Crypto & DeFi
+
+**Price Action**: BTC/ETH essentially flat-to-down in a +0.6% US equity tape. Crypto's traditional 1.5-2x beta to equities is absent.
+
+**TVL Dynamics — Two Stories:**
+
+| Segment | Evidence | Interpretation |
+|---------|----------|----------------|
+| **Liquid Staking Surge** | Rocket Pool +91.7%, Volo +17.6%, Hydro +17.3% | ETH staking demand rising — possibly pre-positioning for yield, not speculation |
+| **Restaking/Lending Stress** | EigenCloud -8.25%, Euler V2 -9.88%, Curvance -7.69% | DeFi's core middleware bleeding — capital exiting leveraged positions |
+| **Meme/Peripheral Growth** | OSL +108.6%, Gala Swap +50.3%, Wildcat +36.7% | Low-base casino activity; not institutional flow |
+
+**Stablecoin Contraction**: USDT -$840M, USDC -$355M in 24h. Combined ~$1.2B exit from crypto's primary liquidity layer. DAI stable (+0.1%) suggests DeFi-native capital holding, not new inflows.
+
+**DEX Volume**: Uniswap V4 -15.3%, Orca -28.6%. Figure Markets +415.8% and Project X +42.7% are anomalies — likely wash or airdrop farming, not organic.
+
+---
+
+## 4. US Market
+
+Strong breadth rally: Dow leading (+0.65%) > S&P (+0.59%) > Nasdaq (+0.44%). **Value over growth** — this rotation matters for crypto, which trades as a Nasdaq proxy with higher volatility.
+
+Implication: If US leadership shifts from Mag7/tech to industrials/value, crypto loses its correlation anchor. Today's price action confirms this decoupling risk.
+
+---
+
+## 5. Hong Kong Market
+
+| Index | Move | Reading |
+|-------|------|---------|
+| HSI | +0.70% | Old economy/value catching US bid |
+| HSCEI | +0.73% | SOEs/financials strong |
+| **HSTECH** | **-0.09%** | **Tech rejected the rally** |
+
+Critical divergence: HSTECH flatlined while US tech rose +0.44%. China tech is being treated as a separate risk bucket — likely reflecting:
+- Renewed regulatory overhang concerns (no specific catalyst, but persistent discount)
+- Alibaba/Tencent/Pinduoduo not participating in global AI capex narrative
+
+HK value ≠ HK tech. Investors are not blindly buying "China beta."
+
+---
+
+## 6. Cross-Market Divergences
+
+| Divergence | Magnitude | Likely Driver | Alpha Signal |
+|------------|-----------|-------------|--------------|
+| **US equities up, crypto flat/down** | S&P +0.59% vs BTC -0.39% | Stablecoin outflows; rotation to traditional risk | Crypto-specific headwind, not macro. Don't chase crypto on equity strength |
+| **HSI/HSCEI up, HSTECH down** | +0.7% vs -0.09% | China tech regulatory discount; value rotation | HK has a sector story, not a country story. Selective entry points in SOEs |
+| **Rocket Pool TVL +91.7% vs EigenCloud -8.25%** | Liquid staking vs restaking | Risk repricing in staking stack; direct staking preferred over leveraged restaking | Restaking narrative fatiguing; base-layer yield returning to favor |
+
+---
+
+## 7. Capital Flow Map
+
+```
+US Equities (Inflow) ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
