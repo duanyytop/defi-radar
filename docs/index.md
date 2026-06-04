@@ -6,118 +6,102 @@ lang: en
 
 [View Archive →](archive)
 
-# Market Intelligence Report — 2026-06-03
+# AI Market Radar — Daily Intelligence Report — 2026-06-04
 
-## Key Insight
+**Generated at:** 2026-06-04T00:56:32.602Z
 
-Crypto is experiencing a sharp decoupling from equities: BTC/ETH plunged 6%+ while US stocks closed at fresh highs and HK markets flatlined, suggesting crypto-specific liquidation pressure rather than broad risk-off. The stablecoin supply contraction (-0.8% USDT weekly) indicates capital is exiting crypto entirely, not rotating within it.
+## Market Overview
 
----
+| | Price | 24h Change |
+|---|---:|---:|
+| BTC | $63,106 | -5.68% |
+| ETH | $1,786.88 | -4.29% |
 
-## Global Risk Sentiment
+**Total Market Cap:** $2.30T (-4.10%)
+**24h Volume:** $334.93B
 
-| Market | Performance | Signal |
-|--------|-------------|--------|
-| US (S&P 500) | +0.59% | Risk ON |
-| US (Nasdaq) | +0.44% | Tech-led, moderate |
-| HK (HSI) | 0.00% | Frozen |
-| HK (HSTECH) | 0.00% | No follow-through |
+## Protocol TVL Changes
 
-**Transmission chain broken.** The typical US → HK → Crypto amplification is not functioning. US equities set a bullish tone, but HK failed to catch any momentum (exactly flat across all three indices), and crypto inverted violently. This is not a global risk-off event—it's a localized crypto deleveraging.
+### Top Gainers (TVL 24h)
 
----
+| Protocol | TVL | 1d | 7d | Category |
+|---|---:|---:|---:|---|
+| Reservoir Protocol | $77.0M | +225.60% | +6.60% | CDP |
+| Rocket Pool | $992.0M | +43.33% | +11.74% | Liquid Staking |
+| Valdora Finance | $27.2M | +33.63% | +4.91% | Liquid Staking |
+| World Chain | $502.0M | +33.09% | +58.78% | Canonical Bridge |
+| Gami Labs | $31.0M | +31.68% | +0.00% | Risk Curators |
+| Felix Vaults | $100.7M | +29.05% | +40.31% | Onchain Capital Allocator |
+| nest CL | $24.4M | +28.69% | +90.76% | Dexs |
+| Sentora | $1.92B | +19.81% | +12.14% | Risk Curators |
+| Polymarket International | $570.7M | +18.41% | +22.40% | Prediction Market |
+| TermMax | $34.6M | +16.73% | -3.06% | Lending |
 
-## Crypto & DeFi
+### Top Losers (TVL 24h)
 
-| Asset | Price | 24h Change |
-|-------|-------|------------|
-| BTC | $66,924 | **-6.00%** |
-| ETH | $1,867.53 | **-6.37%** |
-| Total Crypto MC | $2.40T | -4.86% |
+| Protocol | TVL | 1d | 7d | Category |
+|---|---:|---:|---:|---|
+| Liminal Basis | $15.2M | -42.06% | -39.05% | Basis Trading |
+| Blackhole CLMM | $18.0M | -27.04% | -29.83% | Dexs |
+| Mento V2 | $12.3M | -26.05% | -26.84% | Algo-Stables |
+| Joe V2.2 | $10.0M | -23.74% | -47.97% | Dexs |
+| Lista DEX | $56.4M | -15.75% | -28.67% | Dexs |
+| Summer.fi Pro | $14.9M | -14.61% | -19.83% | CDP Manager |
+| Silo V2 | $16.5M | -14.09% | -15.40% | Lending |
+| Lombard BTC.b | $194.4M | -13.81% | -13.28% | Bridge |
+| Project 0 | $44.3M | -13.56% | -57.07% | Lending |
+| Dolomite | $124.4M | -13.48% | -21.14% | Lending |
 
-**TVL Divergence Signals Stress:**
+## Stablecoin Supply
 
-| Category | Observation | Interpretation |
-|----------|-------------|----------------|
-| Liquid Staking | Rocket Pool +45% (1d), but Obol -13%, Valdora -24% | Fragmentation, not growth—likely collateral shuffling |
-| Restaked BTC | Lombard LBTC -13.55% | Unwinding of BTC-backed DeFi positions |
-| RWA/Yield | Figure Markets +11.56% | Flight to "safer" on-chain yield |
-| Privacy/Governance | Zama -40%, Mezo -22% | High-beta alt liquidation |
+| Stablecoin | Supply | 1d Change | 7d Change |
+|---|---:|---:|---:|
+| USDT (Tether) | $187.39B | -0.30% | -1.01% |
+| USDC (USD Coin) | $76.00B | -0.01% | -0.78% |
+| DAI (Dai) | $4.58B | -0.49% | -0.72% |
 
-**Critical:** DeFi TVL is not collapsing uniformly. Selective strength in RWA and prediction markets (Polymarket +13%) alongside liquid staking volatility suggests **forced repositioning**, not fundamental exit. But the -6% BTC move with flat DEX volumes (Uniswap V4 +3.5%, PancakeSwap flat) means this is spot-driven selling, not derivatives-driven—likely whale/institutional distribution.
+## DEX Trading Volume
 
----
+| DEX | 24h Volume | 24h Change |
+|---|---:|---:|
+| Uniswap V4 | $1.13B | +1.83% |
+| Uniswap V3 | $1.01B | +0.00% |
+| PancakeSwap AMM V3 | $1.01B | +0.00% |
+| Aerodrome Slipstream | $826.1M | +1.72% |
+| Figure Markets Exchange | $783.4M | +1102.25% |
+| Hyperliquid Spot Orderbook | $343.2M | +0.00% |
+| Manifest Trade | $340.1M | +52.66% |
+| BisonFi | $308.9M | +0.00% |
+| Fluid DEX | $292.3M | +22.99% |
+| Orca DEX | $288.9M | +11.46% |
 
-## US Market
+## US Market (Previous Close)
 
-- **S&P 500**: 6643.70 (+0.59%) — new high territory
-- **Nasdaq**: 22484.07 (+0.44%) — lagging slightly, breadth concern
-- **Dow**: 46247.29 (+0.65%) — cyclicals leading
+| Index | Close | 24h Change |
+|---|---:|---:|
+| 道琼斯 | 46,247.29 | +0.65% |
+| 纳斯达克 | 22,484.07 | +0.44% |
+| 标普500 | 6,643.7 | +0.59% |
 
-**Implication:** US equity strength is broadening (Dow > S&P > Nasdaq), which typically reduces capital urgency to seek crypto beta. With traditional risk assets performing, the opportunity cost of holding crypto increases—amplifying outflows when crypto-specific stress emerges.
+## Hong Kong Market (Previous Close)
 
----
+| Index | Close | 24h Change |
+|---|---:|---:|
+| 恒生指数 | 25,633.21 | +0.00% |
+| 国企指数 | 8,596.59 | +0.00% |
+| 恒生科技 | 5,056.97 | +0.00% |
 
-## Hong Kong Market
+## Market Signals
 
-| Index | Close | Change |
-|-------|-------|--------|
-| HSI | 26,038.32 | 0.00% |
-| HSCEI | 8,762.97 | 0.00% |
-| HSTECH | 5,199.28 | 0.00% |
+- [NOTABLE] [BEARISH] BTC -5.7%, ETH -4.3% in 24h
+- [SIGNIFICANT] [BULLISH] Average protocol TVL change: +13.8%
+- [NOTABLE] [BEARISH] Stablecoin supply -0.80% (1d)
 
-**Dead flat across the board.** This is unusual—HK typically shows at least fractional movement. Possible explanations:
-- China policy meeting anticipation (traders sidelined)
-- US-HK arbitrageurs absent due to crypto volatility pulling focus
-- Liquidity drain ahead of month-end/quarter-end flows
+## Investment Considerations
 
-The zero-move in HSTECH is particularly notable given US tech's +0.44%. No global tech rally confirmation from Asia.
-
----
-
-## Cross-Market Divergences
-
-| Divergence | Magnitude | Likely Cause | Alpha Signal |
-|------------|-----------|--------------|--------------|
-| **US up / Crypto down** | +0.59% vs -6.00% | Crypto-specific liquidation; possible ETF outflow or exchange failure rumor | **High conviction:** Not macro-driven; look for mean reversion if no structural catalyst confirmed |
-| **BTC down / DeFi TVL mixed** | -6% BTC vs +172% Origin ARM, +45% Rocket Pool | Collateral migration, not net inflow | Caution: TVL "growth" is compositional, not additive |
-| **US tech up / HSTECH flat** | +0.44% vs 0.00% | Asia disengagement; China discount persistent | Neutral: No confirmation of global tech theme |
-
-**Most actionable:** The US/crypto split. If this were macro-driven, rates/USD would be moving. They're not. This is a crypto endogenous event—likely forced selling from a major holder or structured product unwind.
-
----
-
-## Capital Flow Map
-
-| Indicator | Reading | Flow Direction |
-|-----------|---------|----------------|
-| USDT supply | -0.073% 1d, **-0.808% 7d** | ↗️ **Exiting crypto** |
-| USDC supply | +0.158% 1d, -0.577% 7d | Mild rotation to "regulated" stablecoin |
-| DAI supply | +0.185% 1d, +0.030% 7d | DeFi-native capital holding |
-| DEX volume (top 10) | Mixed, +0-29% | No panic; orderly but thin |
-
-**Interpretation:** Capital is leaving crypto (USDT weekly contraction), not rotating within it. The DAI stability (+0.03% weekly) vs USDT decline suggests remaining capital is "degen" core (Maker users) while flight capital (Tether) exits. This is bearish for near-term recovery—needs USDT supply stabilization as first signal.
-
----
-
-## Risk Matrix
-
-| Rank | Risk | Probability | Impact | Trigger to Watch |
-|------|------|-------------|--------|----------------|
-| 1 | **Crypto liquidation cascade** | High | High | BTC $65K break → $60K margin levels |
-| 2 | **HK/China policy disappointment** | Medium | Medium | HSI breaks 25,500 on no stimulus |
-| 3 | **Fed hawkish repricing** | Low | High | 10Y yield >4.5% with stocks at highs |
+- Significant price decline detected — exercise caution, consider waiting for stabilization
+- DeFi TVL growing — capital flowing into protocols, confidence building
+- Stablecoin supply contracting — capital may be exiting the crypto market
 
 ---
-
-## Action Plan
-
-| Profile | Positioning | Specific Actions |
-|---------|-------------|----------------|
-| **Conservative** | Preserve capital | • Reduce crypto exposure to <5% portfolio; prioritize USDC over USDT<br>• Hold S&P 500 exposure; no hedge needed with crypto uncorrelated<br>• Monitor USDT supply daily—stabilization = re-entry signal |
-| **Moderate** | Selective positioning | • Short ETH/BTC ratio (ETH underperforming, -6.37% vs -6.00%)<br>• Accumulate liquid staking tokens (LDO, RPL) if Rocket Pool TVL growth sustains 3+ days<br>• HK: Wait for HSI >26,200 confirmation before adding China tech |
-| **Aggressive** | High-conviction plays | • BTC $62-65K range bids if liquidation flush continues; target $72K on mean reversion<br>• Long Polymarket/prediction market exposure (event-driven vol ahead)<br>• Arbitrage: Short BTC perps vs spot if funding turns deeply negative |
-
----
-
-*Disclaimer: This report is AI-generated analysis for reference and informational purposes only. It does not constitute financial advice, investment recommendations, or solicitation to buy or sell any securities or digital assets. Past performance does not indicate future results. Consult a qualified financial advisor before making investment decisions.*
+*This report is generated from DeFiLlama and CoinGecko public APIs. It is for informational purposes only and does not constitute financial advice. Always do your own research.*
