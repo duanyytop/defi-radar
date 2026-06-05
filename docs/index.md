@@ -6,19 +6,19 @@ lang: en
 
 [View Archive →](archive)
 
-# AI Market Radar — Daily Intelligence Report — 2026-06-04
+# AI Market Radar — Daily Intelligence Report — 2026-06-05
 
-**Generated at:** 2026-06-04T00:56:32.602Z
+**Generated at:** 2026-06-05T00:49:14.312Z
 
 ## Market Overview
 
 | | Price | 24h Change |
 |---|---:|---:|
-| BTC | $63,106 | -5.68% |
-| ETH | $1,786.88 | -4.29% |
+| BTC | $63,693 | +0.81% |
+| ETH | $1,768.49 | -1.11% |
 
-**Total Market Cap:** $2.30T (-4.10%)
-**24h Volume:** $334.93B
+**Total Market Cap:** $2.29T (-0.31%)
+**24h Volume:** $189.87B
 
 ## Protocol TVL Changes
 
@@ -26,54 +26,54 @@ lang: en
 
 | Protocol | TVL | 1d | 7d | Category |
 |---|---:|---:|---:|---|
-| Reservoir Protocol | $77.0M | +225.60% | +6.60% | CDP |
-| Rocket Pool | $992.0M | +43.33% | +11.74% | Liquid Staking |
-| Valdora Finance | $27.2M | +33.63% | +4.91% | Liquid Staking |
-| World Chain | $502.0M | +33.09% | +58.78% | Canonical Bridge |
-| Gami Labs | $31.0M | +31.68% | +0.00% | Risk Curators |
-| Felix Vaults | $100.7M | +29.05% | +40.31% | Onchain Capital Allocator |
-| nest CL | $24.4M | +28.69% | +90.76% | Dexs |
-| Sentora | $1.92B | +19.81% | +12.14% | Risk Curators |
-| Polymarket International | $570.7M | +18.41% | +22.40% | Prediction Market |
-| TermMax | $34.6M | +16.73% | -3.06% | Lending |
+| EGAS swap | $23.6M | +74.35% | +61.39% | Dexs |
+| 3F | $10.4M | +29.80% | +21.29% | RWA Lending |
+| Republic Note | $13.0M | +21.42% | +3.77% | RWA |
+| Backpack | $322.3M | +21.18% | +6.37% | CEX |
+| Hakutora | $29.0M | +20.94% | +19.91% | Risk Curators |
+| Aave V4 | $99.1M | +17.98% | +38.32% | Lending |
+| Maple | $2.27B | +17.61% | +11.82% | Lending |
+| Velodrome V2 | $13.9M | +17.19% | +3.48% | Dexs |
+| Dolomite | $139.9M | +12.43% | -10.58% | Lending |
+| Orderly Bridge | $22.6M | +9.46% | +11.03% | Bridge |
 
 ### Top Losers (TVL 24h)
 
 | Protocol | TVL | 1d | 7d | Category |
 |---|---:|---:|---:|---|
-| Liminal Basis | $15.2M | -42.06% | -39.05% | Basis Trading |
-| Blackhole CLMM | $18.0M | -27.04% | -29.83% | Dexs |
-| Mento V2 | $12.3M | -26.05% | -26.84% | Algo-Stables |
-| Joe V2.2 | $10.0M | -23.74% | -47.97% | Dexs |
-| Lista DEX | $56.4M | -15.75% | -28.67% | Dexs |
-| Summer.fi Pro | $14.9M | -14.61% | -19.83% | CDP Manager |
-| Silo V2 | $16.5M | -14.09% | -15.40% | Lending |
-| Lombard BTC.b | $194.4M | -13.81% | -13.28% | Bridge |
-| Project 0 | $44.3M | -13.56% | -57.07% | Lending |
-| Dolomite | $124.4M | -13.48% | -21.14% | Lending |
+| Treehouse Protocol | $43.2M | -43.54% | -49.01% | DOR |
+| Valantis STEX | $12.2M | -43.34% | -33.74% | Dexs |
+| Frankencoin | $40.8M | -36.59% | -40.38% | CDP |
+| Polymarket International | $414.8M | -27.43% | -11.13% | Prediction Market |
+| Kumbaya | $16.5M | -25.76% | -31.14% | Dexs |
+| RHEA LST | $27.1M | -23.84% | -16.50% | Liquid Staking |
+| Liqwid | $18.2M | -23.83% | -25.82% | Lending |
+| Fraxlend | $19.7M | -23.67% | -35.01% | Lending |
+| Meta Pool Near | $55.2M | -23.36% | -10.37% | Liquid Staking |
+| USD AI | $225.8M | -23.34% | -22.86% | RWA Lending |
 
 ## Stablecoin Supply
 
 | Stablecoin | Supply | 1d Change | 7d Change |
 |---|---:|---:|---:|
-| USDT (Tether) | $187.39B | -0.30% | -1.01% |
-| USDC (USD Coin) | $76.00B | -0.01% | -0.78% |
-| DAI (Dai) | $4.58B | -0.49% | -0.72% |
+| USDT (Tether) | $187.00B | -0.47% | -1.16% |
+| USDC (USD Coin) | $75.76B | -0.33% | -0.92% |
+| DAI (Dai) | $4.56B | -0.64% | -1.07% |
 
 ## DEX Trading Volume
 
 | DEX | 24h Volume | 24h Change |
 |---|---:|---:|
-| Uniswap V4 | $1.13B | +1.83% |
-| Uniswap V3 | $1.01B | +0.00% |
-| PancakeSwap AMM V3 | $1.01B | +0.00% |
-| Aerodrome Slipstream | $826.1M | +1.72% |
-| Figure Markets Exchange | $783.4M | +1102.25% |
-| Hyperliquid Spot Orderbook | $343.2M | +0.00% |
-| Manifest Trade | $340.1M | +52.66% |
-| BisonFi | $308.9M | +0.00% |
-| Fluid DEX | $292.3M | +22.99% |
-| Orca DEX | $288.9M | +11.46% |
+| Uniswap V4 | $1.30B | +18.02% |
+| Aerodrome Slipstream | $1.00B | +19.41% |
+| Uniswap V3 | $914.1M | +0.00% |
+| PancakeSwap AMM V3 | $847.5M | +0.00% |
+| Manifest Trade | $501.6M | +45.64% |
+| Orca DEX | $371.7M | +28.65% |
+| BisonFi | $356.9M | +0.00% |
+| Hyperliquid Spot Orderbook | $342.0M | +0.00% |
+| Project X | $325.5M | +46.06% |
+| Curve DEX | $255.0M | +25.99% |
 
 ## US Market (Previous Close)
 
@@ -87,20 +87,16 @@ lang: en
 
 | Index | Close | 24h Change |
 |---|---:|---:|
-| 恒生指数 | 25,633.21 | +0.00% |
-| 国企指数 | 8,596.59 | +0.00% |
-| 恒生科技 | 5,056.97 | +0.00% |
+| 恒生指数 | 25,253.4 | -1.48% |
+| 国企指数 | 8,501.91 | -1.10% |
+| 恒生科技 | 4,975.36 | -1.61% |
 
 ## Market Signals
 
-- [NOTABLE] [BEARISH] BTC -5.7%, ETH -4.3% in 24h
-- [SIGNIFICANT] [BULLISH] Average protocol TVL change: +13.8%
-- [NOTABLE] [BEARISH] Stablecoin supply -0.80% (1d)
+- [NOTABLE] [BEARISH] Stablecoin supply -1.43% (1d)
 
 ## Investment Considerations
 
-- Significant price decline detected — exercise caution, consider waiting for stabilization
-- DeFi TVL growing — capital flowing into protocols, confidence building
 - Stablecoin supply contracting — capital may be exiting the crypto market
 
 ---
