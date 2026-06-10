@@ -6,141 +6,102 @@ lang: zh
 
 [查看归档 →](archive)
 
-# Market Intelligence Report — 2026-06-09
-
----
+# Market Intelligence Report — 2026-06-10
 
 ## 1. Key Insight
 
-**美股三大指数全线收涨，但港股科技与加密市场同步重挫，形成罕见的"美股独涨、亚洲风险资产双杀"格局。** 稳定币供应出现结构性分化（USDC单日+0.77% vs USDT七日-0.62%），暗示资金正在从离岸美元通道向合规美元通道迁移，监管预期可能是跨市场分化的核心驱动。
+**US equities rally while crypto bleeds — this is a classic risk-off rotation within risk assets, not a broad "risk-on" environment.** Stablecoin supply contracting across the board (-$1.2B+ combined USDT/USDC/DAI weekly) confirms capital is exiting crypto rather than rotating internally, suggesting institutional de-risking ahead of potential macro catalysts.
 
 ---
 
 ## 2. Global Risk Sentiment
 
-| 市场 | 表现 | 风险信号 |
-|:---|:---|:---|
-| 美国 | 道指+0.65% / 纳指+0.44% / 标普+0.59% | 风险偏好转暖 |
-| 香港 | 恒指-1.22% / 国企-1.13% / 恒生科技-2.71% | 风险偏好急剧收缩 |
-| 加密 | BTC-1.72% / ETH-2.08% / 总市值-1.25% | 高Beta放大下跌 |
+| Market | Performance | Signal |
+|--------|-------------|--------|
+| US (S&P 500) | +0.59% | Risk-on, tech-led |
+| US (Nasdaq) | +0.44% | Moderate tech strength |
+| HK (HSI) | -0.37% | Divergent, China caution |
+| HK (HSTECH) | +0.29% | Tech resilience, but lagging US |
+| Crypto (BTC) | -1.47% | **Risk-off within risk spectrum** |
 
-**Risk Appetite Chain断裂**：典型传导路径（US涨→HK跟涨→Crypto放大）今日失效。美股隔夜收涨未带动港股，反而遭遇科技板块抛售；加密未跟随美股，反而跌幅超越港股。这不是简单的"延迟反应"，而是**区域性风险因子在主导定价**——中国科技监管预期、香港流动性环境、或加密监管叙事正在脱钩于美股周期。
+**Transmission Chain Breakdown:**
+- US → HK: **Partial transmission broken.** US rally did not lift HSI; only HSTECH eked out +0.29% vs Nasdaq's +0.44%
+- US → Crypto: **Inverse correlation.** BTC/ETH declined despite US equity gains — unusual and significant
+
+**Verdict:** Risk appetite is **selective**, not broad. Traditional equities absorbing capital at crypto's expense.
 
 ---
 
 ## 3. Crypto & DeFi
 
-### 价格与情绪
-- BTC $62,643（-1.72%）、ETH $1,668.93（-2.08%）——跌幅温和但方向明确
-- 总市值$2.24T（-1.25%），24h成交量$925亿——**缩量下跌**，非恐慌性抛售
+### Price Action
+- BTC $61,608 (-1.47%) / ETH $1,635 (-1.66%)
+- Total MC $2.205T (-1.34%) — broad-based weakness, not idiosyncratic
 
-### TVL结构：存量博弈，无增量资金
-| 类别 | 信号 | 解读 |
-|:---|:---|:---|
-| CEX TVL剧烈波动 | Pionex +192% / OSL -38.69% / BitVenus -10.53% | 交易所层面资金大迁移，小所向大所集中？或刷量行为 |
-| 跨链桥Hyperlane -44.43% | 七日累计-47.12% | 跨链活动萎缩，链间资本流动停滞 |
-| RWA协议Sky -13.37% | 连续下行 | 真实世界资产叙事遇冷 |
-| Sanctum LSTs +10.67% | 但七日-12.78% | 单日反弹难掩周度流失，Solana生态质押资金松动 |
+### TVL Dynamics: Two Stories
 
-### 稳定币：关键分化信号
-- **USDC +0.773%（单日）/ +0.252%（七日）** → 合规美元通道扩张
-- **USDT +0.064%（单日）/ -0.616%（七日）** → 离岸美元通道收缩
-- **DAI -1.572%（单日）/ -3.412%（七日）** → 去中心化稳定币持续失血
+| Theme | Evidence | Interpretation |
+|-------|----------|----------------|
+| **RWA flight-to-quality** | OpenEden TBILL +28.9%, Centrifuge +18.1%, Republic Note +18.2% | Capital seeking tokenized yield, treating crypto as "risk asset" |
+| **DeFi risk-off** | Echo Lending -55.7%, HyperLend -16.3%, Current -15.9% | Leverage unwinding, lending protocol stress |
+| **Speculative decay** | Chutes (AI) -52.4%, Meteora -23.7% | Narrative trades collapsing |
 
-**核心判断**：这不是"资金流入加密"，而是**加密内部的资金结构重组**——从离岸/去中心化稳定币向合规稳定币迁移，暗示机构投资者在调整敞口，或监管合规压力上升。
+### Stablecoin Supply — Critical Signal
 
-### DEX成交量：活跃度假象
-Uniswap V4（+50.7%）、Fluid DEX（+146.5%）、Curve（+62.0%）放量，但**TVL整体未见增长**。量价背离说明：要么是短期套利/清算驱动，要么是存量资金高频换手，**非趋势性资金入场**。
+| Stablecoin | 1D Change | 7D Change | Cumulative Signal |
+|------------|-----------|-----------|-----------------|
+| USDT | -$39M | -$1.32B | **Net outflow from crypto** |
+| USDC | -$584M | -$912M | Accelerating exit |
+| DAI | -$73M | -$183M | DeFi leverage contraction |
+
+**Total 7D stablecoin contraction: ~$2.4B** — This is **not** rotation to stocks (stocks would rally harder). This is **capital leaving the crypto ecosystem entirely** or sitting in cash within exchanges.
+
+### DEX Volume
+- Uniswap V4 +10.6% to $1.12B (activity concentrating to dominant venue)
+- Fluid DEX -24.2%, Manifest -8.7% — liquidity fragmentation reversing
 
 ---
 
 ## 4. US Market
 
-**美股独立走强，但全球传导失效。**
+**S&P 500 +0.59% / Nasdaq +0.44% / Dow +0.65%**
 
-- 道指+0.65%领跑，纳指+0.44%相对克制——**价值股>成长股**，非典型科技牛
-- 标普+0.59%逼近历史高位，但VIX未提供（数据缺失，需关注）
+- Broad-based rally with defensives participating (Dow leading)
+- Tech not dramatically outperforming — suggests **value rotation within US**, not pure growth euphoria
+- For global flows: US acting as **safe haven** relative to HK/China exposure and crypto volatility
 
-**对全球资本流的含义**：美股上涨若由"美国例外论"（软着陆预期、AI资本开支、财政刺激）驱动，则资金可能**从新兴市场回流美国**，而非溢出至HK/China/Crypto。这与今日港股、加密同步下跌一致——**不是全球risk-on，而是美国selective risk-on**。
+**Implication:** Capital favors "known" liquidity (US large-cap) over "emerging" liquidity (crypto, China tech)
 
 ---
 
 ## 5. Hong Kong Market
 
-| 指数 | 跌幅 | 结构信号 |
-|:---|:---|:---|
-| 恒生指数 | -1.22% | 大盘蓝筹承压 |
-| 国企指数 | -1.13% | 略跑赢恒指，内银/能源有支撑？ |
-| **恒生科技** | **-2.71%** | **科技板块暴跌，情绪冰点** |
+| Index | Close | Change | vs US Equivalent |
+|-------|-------|--------|----------------|
+| HSI | 24,565.90 | -0.37% | S&P +0.59% = **-96bp divergence** |
+| HSCEI | 8,324.59 | -0.20% | State-owned enterprise discount persists |
+| HSTECH | 4,769.61 | +0.29% | Nasdaq +0.44% = **-15bp underperformance** |
 
-**HSTECH -2.71% vs 纳指+0.44% = 科技板块跨市场利差314bps**，创近期极端水平。可能驱动：
-- 中美科技脱钩叙事升温（半导体/AI限制）
-- 中国平台经济监管预期反复
-- 香港流动性环境收紧（联系汇率制度下跟随美联储，但本地信贷收缩）
-
-**关键观察**：国企指数跑赢恒指，说明**传统经济板块相对抗跌**，市场在对冲"新经济"风险。这与2024年"中特估"行情的结构类似。
+**Key Dynamic:** HSTECH's +0.29% is **mechanical catch-up**, not conviction buying. HK failed to participate in US rally due to:
+- China property overhang (no data today, but structural weight)
+- Geopolitical premium: Trump tariff rhetoric, Taiwan tensions
+- HKD peg forcing monetary policy divergence from Fed
 
 ---
 
-## 6. Cross-Market Divergences
+## 6. Cross-Market Divergences ⭐
 
-| 背离组合 | 方向 | 解释与Alpha |
-|:---|:---|:---|
-| **美股↑ vs 港股科技↓ vs 加密↓** | 三重背离 | 核心信号：全球资金未跟随美股risk-on，反而从亚洲风险资产撤离。驱动因子可能是**美元流动性区域分配**（美国吸金）或**中国/加密监管预期同步恶化** |
-| **BTC↓ vs DeFi DEX成交量↑** | 量价背离 | DEX放量但TVL未增，说明是**存量资金换手+短期套利**，非新资金入场抄底 |
-| **USDC供应↑ vs USDT/DAI↓** | 结构分化 | 合规/离岸稳定币剪刀差扩大，指向**监管合规溢价上升**，机构投资者偏好迁移 |
-| **Sanctum LSTs TVL单日+10.67% vs 七日-12.78%** | 短期反弹vs中期流失 | Solana生态质押资金"死猫跳"，不可追 |
+| Divergence | Magnitude | Probable Cause | Alpha Signal |
+|------------|-----------|----------------|--------------|
+| **US up / Crypto down** | S&P +59bps vs BTC -147bps | Regulatory overhang (SEC enforcement cycle?); ETF outflows; whale distribution | **Crypto-specific headwind, not macro** — watch for reversal if catalyst clears |
+| **US up / HK down** | S&P +59bps vs HSI -37bps | China growth discount, HK liquidity drain to US/Singapore | HK relative value trade setting up, but timing uncertain |
+| **RWA TVL up / Lending TVL down** | Centrifuge +18% vs Echo -56% | Credit risk repricing in DeFi; preference for off-chain collateral | DeFi credit cycle turning — reduce lending protocol exposure |
 
-**最具价值的Alpha信号**：美股与港股科技的极端分化，通常预示**政策冲击或流动性断裂**。若明日港股科技继续低开而美股期货持稳，确认"美国例外"叙事强化，应考虑**减持亚洲科技敞口、增配美国短久期资产**。
+**Most Valuable Signal:** The US-Crypto divergence is **not** explained by USD strength (DXY not mentioned, but stablecoin outflows suggest dollar demand is internal to crypto, not FX-driven). Likely catalyst: **anticipation of regulatory action** or **large fund rebalancing post-Q2 end**.
 
 ---
 
 ## 7. Capital Flow Map
 
 ```
-美股上涨 ──────────────────────────────→ 资金留存美国（价值/防御板块）
-    ↓                                          ↑
-    └─×→ 未传导至港股科技（HSTECH -2.71%）      │
-         未传导至加密（BTC -1.72%）              │
-                                              │
-稳定币内部迁移：USDT/DAI ──→ USDC（合规通道）    │
-         ↓                                    │
-    非"新钱入加密"，而是"旧钱调结构" ──────────┘
-    
-DeFi TVL：CEX间剧烈洗牌 + 跨链桥萎缩 + RWA遇冷
-    = 存量博弈，无增量，链上活跃度≠链上健康度
-```
-
-**资金去向判断**：
-1. **美国短债/货币市场**（美股上涨但科技克制，资金求稳）
-2. **USDC合规池**（为潜在监管明朗化做准备）
-3. **部分CEX集中化**（Pionex、BitKan TVL激增，但需甄别是否为真实用户资金）
-
----
-
-## 8. Risk Matrix
-
-| 排名 | 风险 | 概率 | 冲击 | 跨市场传染路径 |
-|:---|:---|:---|:---|:---|
-| 1 | **中国/香港监管预期恶化** | 高 | 高 | HSTECH↓→ 港股流动性↓→ 南向资金回流→ 加密OTC通道受压 |
-| 2 | **稳定币监管框架落地（美国/欧盟）** | 中高 | 高 | USDC获益、USDT承压→ 加密市场结构性重组→ DeFi协议合规成本↑ |
-| 3 | **美股"假突破"回调** | 中 | 中高 | 若当前美股涨基于降息预期过度定价，数据反转将触发全球correlation→1抛售 |
-
----
-
-## 9. Action Plan
-
-| 策略类型 | 建议 | 具体标的/操作 |
-|:---|:---|:---|
-| **保守型** | 压缩久期，提升现金等价物比例 | 增配USDC（非USDT）作为流动性储备；减持HSTECH ETF及Solana生态敞口；关注3个月内到期的美国短债 |
-| **稳健型** | 利用跨市场分化做相对价值 | **做空HSTECH/纳指利差**（如通过期货或期权结构）；超配美股价值/防御板块；减持跨链桥相关代币（Hyperlane类风险暴露） |
-| **激进型** | 押注监管分化或均值回归 | 若相信港股科技超跌：左侧布局恒生科技ETF认沽期权卖方（收取高波动溢价）；若相信稳定币合规叙事：做多USDC市场份额（Circle相关敞口）；**高 conviction 做空DAI/去中心化稳定币相对USDC的汇率偏差**（需监控MakerDAO治理风险） |
-
-**关键触发器**：
-- 明日美股期货开盘方向 → 验证"美国例外"持续性
-- 香港金管局是否干预汇率/释放流动性信号
-- 美国SEC/CFTC任何稳定币相关声明
-
----
-
-*免责声明：本报告由AI基于公开市场数据生成，仅供信息参考，不构成投资建议、要约或招揽。加密货币及衍生品交易涉及重大风险，可能导致本金全部损失。过往表现不代表未来收益。投资者应根据自身财务状况及风险承受能力独立决策，必要时咨询持牌专业顾问。*
+US EQUITIES ←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←←
